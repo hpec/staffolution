@@ -1,14 +1,14 @@
 <head>
   <h1>
-      Staffolution
+    Staffolution
   </h1>
   <h5>
-    <i>
-      Kevin Baum, Drew Haymond, Chris Lin, Daniel Liu, Peng Xue
-    </i>
-    <i>
-      Nathan Brummel, Elizabeth Brummel, & Chris DeLauder
-    </i>
+    <div>
+      <i>Kevin Baum, Drew Haymond, Chris Lin, Daniel Liu, Peng Xue</i>
+    </div>
+    <div>
+      <i>Nathan Brummel, Elizabeth Brummel, & Chris DeLauder</i>
+    </div>
   </h5>
 </head>  
 
@@ -18,14 +18,17 @@
   </h2>
   
   <p>
-     Staffolution, Inc., ...
+    Staffolution, Inc.
+    <a href="http://www.staffolution.com">
+      Staffolution.com
+    </a>
   </p>
-  <a href="http://www.staffolution.com">
-    Staffolution.com
-  </a>
-  <a href="https://www.youtube.com/watch?v=ZO494KukJDg">
-    https://www.youtube.com/watch?v=ZO494KukJDg
-  </a>
+  <p>
+    Video: 
+    <a href="https://www.youtube.com/watch?v=ZO494KukJDg">
+      https://www.youtube.com/watch?v=ZO494KukJDg
+    </a>
+  </p>
   
 </body>  
 
