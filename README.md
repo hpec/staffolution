@@ -4,6 +4,9 @@
   </h1>
   <h5>
     <i>
+      Kevin Baum, Drew Haymond, Chris Lin, Daniel Liu, Peng Xue
+    </i>
+    <i>
       Nathan Brummel, Elizabeth Brummel, & Chris DeLauder
     </i>
   </h5>
@@ -17,9 +20,11 @@
   <p>
      Staffolution, Inc., ...
   </p>
-  
-  <a href=http://www.staffolution.com> 
+  <a href="http://www.staffolution.com">
     Staffolution.com
+  </a>
+  <a href="https://www.youtube.com/watch?v=ZO494KukJDg">
+    https://www.youtube.com/watch?v=ZO494KukJDg
   </a>
   
 </body>  
