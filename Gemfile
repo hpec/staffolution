@@ -38,6 +38,7 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'validates_formatting_of'
+gem 'annotate'
 
 group :development do
   gem 'better_errors'
