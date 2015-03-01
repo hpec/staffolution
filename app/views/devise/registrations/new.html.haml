@@ -19,6 +19,12 @@
     .col-md-8
       = f.password_field :password_confirmation, class: "text-field form-control", html: {autocomplete: "off"}
   .form-group
+    %input{:type=>"radio", :name=>"user[type]"} I am a worker
+    %input{:type=>"radio", :name=>"user[type]"} I am an employer
+    / %select
+    /   %option joke
+    /   %option poem
+  .form-group
     .col-md-offset-4.col-md-8
       = f.submit "Sign Up", class: "btn btn-primary"
   .form-group
