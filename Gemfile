@@ -25,6 +25,12 @@ group :development, :test do
   gem 'better_errors'
 end
 
+group :test do
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'pg'
@@ -45,9 +51,3 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'validates_formatting_of'
 gem 'annotate'
-
-group :test do
-  gem 'shoulda-matchers'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-end
