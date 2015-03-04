@@ -2,6 +2,7 @@
   <h1>
     Staffolution
   </h1>
+  <img src="https://codeship.com/projects/95d8dda0-d5ce-0131-7b64-4eb14cd33a37/status?branch=master"/>
   <h5>
     <div>
       <i>Kevin W. Baum, Drew Haymond, Chris Lin, Daniel Liu, Peng Xue</i>
@@ -10,7 +11,7 @@
       <i>Nathan Brummel, Elizabeth Brummel, & Chris DeLauder</i>
     </div>
   </h5>
-</head>  
+</head>
 
 <body>
   <h2>
@@ -30,7 +31,7 @@
     </a>
   </p>
   
-</body>  
+</body>
 
 ##.
 
