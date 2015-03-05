@@ -29,6 +29,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
+  gem "codeclimate-test-reporter", require: nil
 end
 
 group :production do
