@@ -29,3 +29,6 @@ config/environments/*.local.yml
 *~
 *.swp
 *.swo
+
+vendor/
+coverage/
