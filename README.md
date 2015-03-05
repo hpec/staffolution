@@ -2,7 +2,8 @@
   <h1>
     Staffolution
   </h1>
-  <img src="https://codeship.com/projects/95d8dda0-d5ce-0131-7b64-4eb14cd33a37/status?branch=master"/>
+  [![Code Climate](https://codeclimate.com/github/hpec/staffolution.png)](https://codeclimate.com/github/hpec/staffolution)
+  [![Build Status](https://travis-ci.org/hpec/staffolution.png)](https://travis-ci.org/hpec/staffolution)
   <h5>
     <div>
       <i>Kevin W. Baum, Drew Haymond, Chris Lin, Daniel Liu, Peng Xue</i>
