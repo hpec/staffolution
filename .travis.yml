@@ -7,3 +7,4 @@ script:
   - bundle exec rake db:reset
   - bundle exec rake db:test:prepare
   - bundle exec rspec spec/
+  
