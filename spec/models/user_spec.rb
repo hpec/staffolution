@@ -30,5 +30,32 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  	describe User do
+
+		before(:each) { @user = User.new(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678') }
+
+		subject { @user }
+
+		it { should respond_to(:email) }
+		it { should respond_to(:username) }
+		it { should respond_to(:name) }
+		it "#email returns a string" do
+			expect(@user.email).to match 'user@example.com'
+		end
+		it "#username returns a string" do
+			expect(@user.username).to match 'user1'
+		end
+		it "#id returns a int" do
+			expect(@user.id).to match 1
+		end
+		it "#name returns a string" do
+			expect(@user.name).to match 'F_L'
+		end
+		it "#should raise" do
+			@user1=User.new(email: 'user1@example.com', username: 'user2' ,password:'12345678')
+			@user1.save!
+			@user2=User.create(email: 'user1@example.com', username: 'user3', password:'12345678')
+			expect{@user2.save!}.to raise_error()
+		end
+	end
 end
