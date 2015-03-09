@@ -19,6 +19,9 @@
     .col-md-8
       = f.password_field :password_confirmation, class: "text-field form-control", html: {autocomplete: "off"}
   .form-group
+    %input{:type=>"radio", :name=>"user[is_employer]", :value => "0", :checked => params[:employee] } I want to find a job
+    %input{:type=>"radio", :name=>"user[is_employer]", :value => "1", :checked => params[:employer] } I want to post a job
+  .form-group
     .col-md-offset-4.col-md-8
       = f.submit "Sign Up", class: "btn btn-primary"
   .form-group
