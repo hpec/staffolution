@@ -2,6 +2,9 @@
   <h1>
     Staffolution
   </h1>
+  [![Build Status](https://travis-ci.org/hpec/staffolution.png)](https://travis-ci.org/hpec/staffolution)
+  [![Test Coverage](https://codeclimate.com/github/hpec/staffolution/badges/coverage.svg)](https://codeclimate.com/github/hpec/staffolution)
+  [![Code Climate](https://codeclimate.com/github/hpec/staffolution.png)](https://codeclimate.com/github/hpec/staffolution)
   <h5>
     <div>
       <i>Kevin W. Baum, Drew Haymond, Chris Lin, Daniel Liu, Peng Xue</i>
@@ -10,7 +13,7 @@
       <i>Nathan Brummel, Elizabeth Brummel, & Chris DeLauder</i>
     </div>
   </h5>
-</head>  
+</head>
 
 <body>
   <h2>
@@ -30,7 +33,7 @@
     </a>
   </p>
   
-</body>  
+</body>
 
 ##.
 

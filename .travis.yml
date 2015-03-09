@@ -1,0 +1,21 @@
+language: ruby
+rvm:
+- 1.9.3
+script:
+- bundle exec rake db:migrate
+- bundle exec rake db:reset
+- bundle exec rake db:test:prepare
+- bundle exec rspec spec/
+- bundle exec rake cucumber
+addons:
+  code_climate:
+    repo_token:
+      secure: SA6b9tTkurbLH7+rcIMJm3X9kKEYsB5eHy9IfP/D3cT/7seDfLseXfredybt4cSJQMZRzr1+yu3vcF2YNvfoBD4u16s1WizUvsKByqoSx/o9q4ou1c9rSEtEB9kR2yMR3jUoZavcDObgpUM27Ea8aaij7Oe0J0rvqu/+ij8GqPQ=
+deploy:
+  provider: heroku
+  api_key:
+    secure: olVuh00AuDrhE+DO2ZS1umFYp8mGUA5JovD/SF8ZR13oXK/bYAp0W9bF12EwDMjJ6gA2Obu6Z0QKDsqLVbd8iCfSx2LloMysCbOFiAdxzs88qopZmDaBBcPT8Ko2enafwKHL76145F0Q8yF4/uGqhAaAwEceKFjpMYmCbAl/WI0=
+  app: staffolution
+  on:
+    repo: hpec/staffolution
+  run: "rake db:migrate"

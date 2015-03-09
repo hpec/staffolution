@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 
 gem 'rails', '4.0.4'
-gem 'sqlite3'
 # gem 'html2haml'
 gem 'haml-rails'
 gem 'sass-rails', '~> 4.0.2'
@@ -22,6 +21,20 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'sqlite3'
+  gem 'better_errors'
+end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem "codeclimate-test-reporter", require: nil
+end
+
+group :production do
+  gem 'rails_12factor'
+  gem 'pg'
 end
 
 gem 'acts_as_votable', github: 'ryanto/acts_as_votable'
@@ -39,13 +52,3 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'validates_formatting_of'
 gem 'annotate'
-
-group :development do
-  gem 'better_errors'
-end
-
-group :test do
-  gem 'shoulda-matchers'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-end

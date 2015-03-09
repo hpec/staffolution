@@ -25,3 +25,10 @@ config/environments/*.local.yml
 
 **/.DS_Store
 .ruby-version
+
+*~
+*.swp
+*.swo
+
+vendor/
+coverage/
