@@ -13,8 +13,10 @@ Background: some users already exist
 	|2 |fatcat  |7777777       |E   |
 
 Scenario: log in to worker account
-	When I am on the log in page
-	And I fill username with joeshmoe
-	And I fill authentication with 1234567
-	And I click "log in"
+        When I am on the home page
+        And I press "Login"
+	Then I should be on the login page
+	When I fill login with 'joeshmoe'
+	And I fill password with '1234567'
+	And I press "Login"
 	Then I should be on the worker home page

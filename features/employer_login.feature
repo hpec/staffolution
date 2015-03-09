@@ -14,7 +14,7 @@ Background: some users already exist
 
 Scenario: log in to employer account
 	When I am on the log in page
-	And I fill username with fatcat
-	And I fill authentication with 7777777
-	And I click "log in"
+	And I fill login with 'fatcat'
+	And I fill password with '7777777'
+	And I press "Login"
 	Then I should be on the employer home page
