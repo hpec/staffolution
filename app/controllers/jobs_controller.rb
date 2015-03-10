@@ -1,4 +1,4 @@
-# class JobsController < ApplicationController
+class JobsController < ApplicationController
 
 #   #->Prelang (scaffolding:rails/scope_to_user)
 #   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
@@ -76,4 +76,4 @@
 #     def job_params
 #       params.require(:job).permit(:user_id, :employee_id, :job_position, :job_description, :job_start_date, :job_end_date, :job_compensation, :job_start_time, :job_end_time, :job_filled, :job_title, :employer_id)
 #     end
-# end
+end

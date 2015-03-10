@@ -1,4 +1,4 @@
-# class ReviewsController < ApplicationController
+class ReviewsController < ApplicationController
 
 #   #->Prelang (scaffolding:rails/scope_to_user)
 #   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
@@ -76,4 +76,4 @@
 #     def review_params
 #       params.require(:review).permit(:employee_id, :review_rating, :user_id, :review_description, :review_employee_recommendation, :employer_id)
 #     end
-# end
+end

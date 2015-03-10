@@ -1,4 +1,4 @@
-# class RepsController < ApplicationController
+class RepsController < ApplicationController
 
 #   #->Prelang (scaffolding:rails/scope_to_user)
 #   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
@@ -96,4 +96,4 @@
 #     def rep_params
 #       params.require(:rep).permit(:rep_name, :rep_type, :rep_description, :user_id, :rep_email, :rep_phone, :rep_url)
 #     end
-# end
+end

@@ -1,4 +1,4 @@
-# class EmployersController < ApplicationController
+class EmployersController < ApplicationController
 
 #   #->Prelang (scaffolding:rails/scope_to_user)
 #   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
@@ -96,4 +96,4 @@
 #     def employer_params
 #       params.require(:employer).permit(:employer_name, :employer_zipcode, :employer_phone, :employer_url, :employer_email, :user_id, :employer_street_number, :employer_street, :employer_unit_number, :employer_city, :employer_state, :employer_office_type)
 #     end
-# end
+end
