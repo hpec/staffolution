@@ -18,26 +18,28 @@ class ApplicationController < ActionController::Base
   private
   
   #-> Prelang (user_login:devise)
-  def require_user_signed_in
-    unless user_signed_in?
+  # def require_user_signed_in
+  #   unless user_signed_in?
 
-      # If the user came from a page, we can send them back.  Otherwise, send
-      # them to the root path.
-      if request.env['HTTP_REFERER']
-        fallback_redirect = :back
-      elsif defined?(root_path)
-        fallback_redirect = root_path
-      else
-        fallback_redirect = "/"
-      end
+  #     # If the user came from a page, we can send them back.  Otherwise, send
+  #     # them to the root path.
+  #     if request.env['HTTP_REFERER']
+  #       fallback_redirect = :back
+  #     elsif defined?(root_path)
+  #       fallback_redirect = root_path
+  #     else
+  #       fallback_redirect = "/"
+  #     end
 
-      redirect_to fallback_redirect, flash: {error: "You must be signed in to view this page."}
-    end
-  end
+  #     redirect_to fallback_redirect, flash: {error: "You must be signed in to view this page."}
+  #   end
+  # end
 
-  def after_sign_in_path_for(resource)
-    # TODO: redirect to profile creation after sign in
-    request.env['omniauth.origin'] || stored_location_for(resource) || root_path
-  end
+  # def after_sign_in_path_for(resource)
+  #   # TODO: redirect to profile creation after sign in
+  #   # FOR NOW: Redirects to index, which is (worker/employer) home page. Once employer 
+  #   # and employee profiles are implemented, this will be implemented.
+  #   request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+  # end
 
 end
