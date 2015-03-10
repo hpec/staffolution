@@ -32,5 +32,10 @@
 
 FactoryGirl.define do
   factory :user do
+  	username 'User1'
+    email 'example@example.com'
+    password '12345678'
+    id 1
   end
 end
+
