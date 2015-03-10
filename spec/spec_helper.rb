@@ -16,6 +16,11 @@ CodeClimate::TestReporter.start
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rspec/rails'
+require 'rspec/autorun'
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 RSpec.configure do |config|
 
   #->Prelang[testing_framework] -->
@@ -40,7 +45,7 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
+  config.include Capybara::DSL
   #<-- Prelang[testing_framework]
 
 
