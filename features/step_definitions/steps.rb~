@@ -46,17 +46,18 @@ When(/^I follow "(.*?)"$/) do |link|
 end
 
 Then(/^I should see "(.*?)"$/) do |content|
+  #puts page.body
   assert page.body.include? content
   #pending
 end
 
 Then(/^I should be on the employer home page$/) do
-  assert page.body.contains? "Employer Home Page"
+  assert page.body.include? "Employer Home Page"
   #pending
 end
 
 Then(/^I should be on the worker home page$/) do
-  assert page.body.contains? "Worker Home Page"
+  assert page.body.include? "Worker Home Page"
   #pending
 end
 

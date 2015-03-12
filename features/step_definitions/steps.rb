@@ -46,6 +46,7 @@ When(/^I follow "(.*?)"$/) do |link|
 end
 
 Then(/^I should see "(.*?)"$/) do |content|
+  puts page.body
   assert page.body.include? content
   #pending
 end
