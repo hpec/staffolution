@@ -3157,3 +3157,54 @@ Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-11 17:29:58 -07
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 17:29:58 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (11.8ms)[0m  [1mCREATE TABLE "active_admin_comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "namespace" varchar(255), "body" text, "resource_id" varchar(255) NOT NULL, "resource_type" varchar(255) NOT NULL, "author_id" integer, "author_type" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (5.3ms)[0m  CREATE INDEX "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments" ("author_type", "author_id")
+  [1m[36m (4.8ms)[0m  [1mCREATE INDEX "index_active_admin_comments_on_namespace" ON "active_admin_comments" ("namespace")[0m
+  [1m[35m (4.1ms)[0m  CREATE INDEX "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments" ("resource_type", "resource_id")
+  [1m[36m (5.6ms)[0m  [1mCREATE TABLE "admin_users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (4.5ms)[0m  CREATE UNIQUE INDEX "index_admin_users_on_email" ON "admin_users" ("email")
+  [1m[36m (4.8ms)[0m  [1mCREATE UNIQUE INDEX "index_admin_users_on_reset_password_token" ON "admin_users" ("reset_password_token")[0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "attempts" integer DEFAULT 0 NOT NULL, "handler" text NOT NULL, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "queue" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.0ms)[0m  [1mCREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "education_classes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "class_name" varchar(255), "class_type" varchar(255), "class_keywords" text, "class_date_start" date, "class_date_end" date, "class_time_start" time, "class_time_end" time, "class_worth" integer, "reps_id" integer, "class_category" varchar(255), "class_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.0ms)[0m  [1mCREATE INDEX "index_education_classes_on_reps_id" ON "education_classes" ("reps_id")[0m
+  [1m[35m (4.9ms)[0m  CREATE TABLE "employees" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employee_email" varchar(255), "employee_phone" varchar(255), "employee_zipcode" varchar(255), "employee_first_name" varchar(255), "employee_last_name" varchar(255), "user_id" integer, "employee_bages" varchar(255), "employee_description" text, "employee_experience_years" integer, "employee_experience_months" integer, "employee_lic_number" varchar(255), "employee_type" varchar(255), "employee_rating" float, "employee_punctuality" boolean, "employee_dependability" boolean, "employee_reliable_transportation" boolean, "employee_accurate_calendar" boolean, "employee_transportation" boolean, "employee_school" varchar(255), "employee_languages" varchar(255), "employee_qualifications" varchar(255), "employee_credentials" varchar(255), "employee_experience" varchar(255), "employee_phone_verified" boolean, "employee_email_verified" boolean, "employee_lic_verified" boolean, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.4ms)[0m  [1mCREATE INDEX "index_employees_on_user_id" ON "employees" ("user_id")[0m
+  [1m[35m (3.8ms)[0m  CREATE TABLE "employers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employer_name" varchar(255), "employer_zipcode" varchar(255), "employer_phone" varchar(255), "employer_url" varchar(255), "employer_email" varchar(255), "user_id" integer, "employer_street_number" varchar(255), "employer_street" varchar(255), "employer_unit_number" varchar(255), "employer_city" varchar(255), "employer_state" varchar(255), "employer_office_type" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.7ms)[0m  [1mCREATE INDEX "index_employers_on_user_id" ON "employers" ("user_id")[0m
+  [1m[35m (3.4ms)[0m  CREATE TABLE "jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "employee_id" integer, "job_position" varchar(255), "job_description" text, "job_start_date" date, "job_end_date" date, "job_compensation" float, "job_start_time" time, "job_end_time" time, "job_filled" boolean, "job_title" varchar(255), "employer_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.3ms)[0m  [1mCREATE INDEX "index_jobs_on_employee_id" ON "jobs" ("employee_id")[0m
+  [1m[35m (3.3ms)[0m  CREATE INDEX "index_jobs_on_employer_id" ON "jobs" ("employer_id")
+  [1m[36m (3.2ms)[0m  [1mCREATE INDEX "index_jobs_on_user_id" ON "jobs" ("user_id")[0m
+  [1m[35m (4.0ms)[0m  CREATE TABLE "reps" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "rep_name" varchar(255), "rep_type" varchar(255), "rep_description" text, "user_id" integer, "rep_email" varchar(255), "rep_phone" varchar(255), "rep_url" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (3.3ms)[0m  [1mCREATE INDEX "index_reps_on_user_id" ON "reps" ("user_id")[0m
+  [1m[35m (4.6ms)[0m  CREATE TABLE "reviews" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "employee_id" integer, "review_rating" float, "user_id" integer, "review_description" text, "review_employee_recommendation" boolean, "employer_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (5.4ms)[0m  [1mCREATE INDEX "index_reviews_on_employee_id" ON "reviews" ("employee_id")[0m
+  [1m[35m (4.4ms)[0m  CREATE INDEX "index_reviews_on_employer_id" ON "reviews" ("employer_id")
+  [1m[36m (3.9ms)[0m  [1mCREATE INDEX "index_reviews_on_user_id" ON "reviews" ("user_id")[0m
+  [1m[35m (5.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "provider" varchar(255), "uid" varchar(255), "name" varchar(255), "username" varchar(255), "is_employer" boolean) 
+  [1m[36m (4.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (4.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (4.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  [1m[35m (4.4ms)[0m  CREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "votable_id" integer, "votable_type" varchar(255), "voter_id" integer, "voter_type" varchar(255), "vote_flag" boolean, "vote_scope" varchar(255), "vote_weight" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (4.2ms)[0m  [1mCREATE INDEX "index_votes_on_votable_id_and_votable_type_and_vote_scope" ON "votes" ("votable_id", "votable_type", "vote_scope")[0m
+  [1m[35m (5.7ms)[0m  CREATE INDEX "index_votes_on_voter_id_and_voter_type_and_vote_scope" ON "votes" ("voter_id", "voter_type", "vote_scope")
+  [1m[36m (5.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (4.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20150309034603')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074340')[0m
+  [1m[35m (5.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074343')
+  [1m[36m (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074319')[0m
+  [1m[35m (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074329')
+  [1m[36m (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074236')[0m
+  [1m[35m (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074314')
+  [1m[36m (5.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074302')[0m
+  [1m[35m (8.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074325')
+  [1m[36m (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074253')[0m
+  [1m[35m (5.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074333')
+  [1m[36m (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074245')[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074336')
+  [1m[36m (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074258')[0m
