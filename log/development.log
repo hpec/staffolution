@@ -3208,3 +3208,324 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 17:29:58
   [1m[36m (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074245')[0m
   [1m[35m (7.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140606074336')
   [1m[36m (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140606074258')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-11 23:36:11 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LandingsController#index as HTML
+  Rendered landings/index.html.haml within layouts/application (42.0ms)
+  Rendered elements/_navbar.html.haml (11.7ms)
+Completed 200 OK in 1093ms (Views: 1047.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-03-11 23:36:12 -0300
+
+
+Started GET "/assets/bootstrap_configuration.css?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/landings.css?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:13 -0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:14 -0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:14 -0300
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:14 -0300
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:14 -0300
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:14 -0300
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:14 -0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.widget.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.button.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.mouse.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.draggable.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.position.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:15 -0300
+
+
+Started GET "/assets/jquery.ui.resizable.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/jquery.ui.dialog.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/jquery.ui.sortable.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/base.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/lib/batch_actions.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/lib/has_many.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:16 -0300
+
+
+Started GET "/assets/active_admin/lib/popover.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/active_admin/ext/jquery.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/active_admin.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/education_classes.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/active_admin/application.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/employees.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/employers.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/jobs.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/landings.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:17 -0300
+
+
+Started GET "/assets/reps.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:18 -0300
+
+
+Started GET "/assets/reviews.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:18 -0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-03-11 23:36:18 -0300
+
+
+Started GET "/signup?employee=1" for 127.0.0.1 at 2015-03-11 23:46:39 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"employee"=>"1"}
+  Rendered devise/shared/_links.erb (1.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (193.1ms)
+  Rendered elements/_navbar.html.haml (0.6ms)
+Completed 200 OK in 528ms (Views: 391.2ms | ActiveRecord: 32.6ms)
+
+
+Started GET "/signup?employee=1" for 127.0.0.1 at 2015-03-11 23:46:58 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"employee"=>"1"}
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (117.6ms)
+  Rendered elements/_navbar.html.haml (0.5ms)
+Completed 200 OK in 329ms (Views: 327.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2015-03-12 00:00:18 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ad64IY/kZPxACS7XjOKxSKpXMhDsoafMcSXUEDfBE3Q=", "user"=>{"username"=>"cowabunga", "email"=>"abdsfb@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "is_employer"=>"0"}, "commit"=>"Sign Up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (39.9ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'abdsfb@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (199.6ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "is_employer", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)  [["created_at", Thu, 12 Mar 2015 03:00:18 UTC +00:00], ["email", "abdsfb@gmail.com"], ["encrypted_password", "$2a$10$a7o1F7MtfpWEm1aOjABxM.VSxqEv23Jp/01.cQrLnVyDL8wXDpvia"], ["is_employer", false], ["updated_at", Thu, 12 Mar 2015 03:00:18 UTC +00:00], ["username", "cowabunga"]]
+  [1m[36m (32.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `last_sign_in_ip`
+Binary data inserted for `string` type on column `current_sign_in_ip`
+  [1m[36mSQL (13.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 5[0m  [["last_sign_in_at", Thu, 12 Mar 2015 03:00:18 UTC +00:00], ["current_sign_in_at", Thu, 12 Mar 2015 03:00:18 UTC +00:00], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", Thu, 12 Mar 2015 03:00:18 UTC +00:00]]
+  [1m[35m (66.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 761ms (ActiveRecord: 351.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:00:19 -0300
+Processing by LandingsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered landings/index.html.haml within layouts/application (13.7ms)
+  Rendered elements/_navbar.html.haml (0.7ms)
+Completed 200 OK in 360ms (Views: 353.8ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2015-03-12 00:07:40 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ad64IY/kZPxACS7XjOKxSKpXMhDsoafMcSXUEDfBE3Q="}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 121ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:07:40 -0300
+Processing by LandingsController#index as HTML
+  Rendered landings/index.html.haml within layouts/application (1.1ms)
+  Rendered elements/_navbar.html.haml (0.5ms)
+Completed 200 OK in 363ms (Views: 361.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2015-03-12 00:08:56 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (30.8ms)
+  Rendered elements/_navbar.html.haml (0.6ms)
+Completed 200 OK in 342ms (Views: 340.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup?employee=1" for 127.0.0.1 at 2015-03-12 00:08:59 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Parameters: {"employee"=>"1"}
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (35.4ms)
+  Rendered elements/_navbar.html.haml (0.9ms)
+Completed 200 OK in 348ms (Views: 345.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/signup" for 127.0.0.1 at 2015-03-12 00:09:44 -0300
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"eM+8t6Sp9Y7ElwLAIu3boQl2LysC7DqxXLbTFw4jd+k=", "user"=>{"username"=>"asdfdas", "email"=>"dfasfsd@dls.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "is_employer"=>"0"}, "commit"=>"Sign Up"}
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'dfasfsd@dls.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (2.7ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "encrypted_password", "is_employer", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?)[0m  [["created_at", Thu, 12 Mar 2015 03:09:44 UTC +00:00], ["email", "dfasfsd@dls.com"], ["encrypted_password", "$2a$10$g.lbBoJroPh/C4V5B.8x4OOVaXwzT3F2JUbGOXN3T.SAClfS.Sk0u"], ["is_employer", false], ["updated_at", Thu, 12 Mar 2015 03:09:44 UTC +00:00], ["username", "asdfdas"]]
+  [1m[35m (67.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `last_sign_in_ip`
+Binary data inserted for `string` type on column `current_sign_in_ip`
+  [1m[35mSQL (4.9ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = 6  [["last_sign_in_at", Thu, 12 Mar 2015 03:09:44 UTC +00:00], ["current_sign_in_at", Thu, 12 Mar 2015 03:09:44 UTC +00:00], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", Thu, 12 Mar 2015 03:09:44 UTC +00:00]]
+  [1m[36m (35.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 357ms (ActiveRecord: 111.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:09:44 -0300
+Processing by LandingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered landings/index.html.haml within layouts/application (4.8ms)
+  Rendered elements/_navbar.html.haml (0.5ms)
+Completed 200 OK in 322ms (Views: 320.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:29:00 -0300
+Processing by LandingsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 ORDER BY "users"."id" ASC LIMIT 1[0m
+  Rendered landings/index.html.haml within layouts/application (29.6ms)
+  Rendered elements/_navbar.html.haml (5.6ms)
+Completed 200 OK in 361ms (Views: 359.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:29:07 -0300
+Processing by LandingsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 6 ORDER BY "users"."id" ASC LIMIT 1
+  Rendered landings/index.html.haml within layouts/application (5.1ms)
+  Rendered elements/_navbar.html.haml (0.3ms)
+Completed 200 OK in 497ms (Views: 491.6ms | ActiveRecord: 0.3ms)
+
+
+Started DELETE "/signout" for 127.0.0.1 at 2015-03-12 00:48:01 -0300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eM+8t6Sp9Y7ElwLAIu3boQl2LysC7DqxXLbTFw4jd+k="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 6 ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 27ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:48:01 -0300
+Processing by LandingsController#index as HTML
+  Rendered landings/index.html.haml within layouts/application (1.2ms)
+  Rendered elements/_navbar.html.haml (0.5ms)
+Completed 200 OK in 313ms (Views: 308.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-03-12 00:48:06 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (1.0ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (125.5ms)
+  Rendered elements/_navbar.html.haml (0.6ms)
+Completed 200 OK in 632ms (Views: 630.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2015-03-12 00:48:10 -0300
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.erb (0.6ms)
+  Rendered devise/registrations/new.html.haml within layouts/application (39.7ms)
+  Rendered elements/_navbar.html.haml (0.6ms)
+Completed 200 OK in 325ms (Views: 322.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-03-12 00:54:19 -0300
+Processing by LandingsController#index as HTML
+  Rendered landings/index.html.haml within layouts/application (9.4ms)
+  Rendered elements/_navbar.html.haml (0.6ms)
+Completed 200 OK in 308ms (Views: 306.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2015-03-12 00:57:49 -0300
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (19.6ms)
+  Rendered devise/sessions/new.html.haml within layouts/application (25.9ms)
+  Rendered elements/_navbar.html.haml (0.9ms)
+Completed 200 OK in 402ms (Views: 399.9ms | ActiveRecord: 0.0ms)

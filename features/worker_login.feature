@@ -8,15 +8,15 @@ Background: some users already exist
 
 	Given that the following Users exist:
 
-	|ID|Username|Authentication|Type|
-	|1 |joeshmoe|1234567       |W   |
-	|2 |fatcat  |7777777       |E   |
+	|ID|Username|Authentication|Type|Email	|
+	|1 |joeshmoe|12345678      |W   |a@b.com|
+	|2 |fatcat  |77777777      |E   |b@c.com|
 
 Scenario: log in to worker account
         When I am on the home page
-        And I press "Login"
-	Then I should be on the login page
-	When I fill login with 'joeshmoe'
-	And I fill password with '1234567'
+        And I follow "Login"
+	And I should be on the login page
+	And I fill user_login with 'joeshmoe'
+	And I fill user_password with '12345678'
 	And I press "Login"
 	Then I should be on the worker home page
