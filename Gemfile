@@ -23,6 +23,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'sqlite3'
   gem 'better_errors'
+  gem 'quiet_assets'
+  gem 'thin'
 end
 
 group :test do
