@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326231521) do
+ActiveRecord::Schema.define(version: 20150327080045) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -114,18 +114,17 @@ ActiveRecord::Schema.define(version: 20150326231521) do
   add_index "employees", ["user_id"], name: "index_employees_on_user_id"
 
   create_table "employers", force: true do |t|
-    t.string   "employer_name"
-    t.string   "employer_zipcode"
-    t.string   "employer_phone"
-    t.string   "employer_url"
-    t.string   "employer_email"
     t.integer  "user_id"
-    t.string   "employer_street_number"
-    t.string   "employer_street"
-    t.string   "employer_unit_number"
-    t.string   "employer_city"
-    t.string   "employer_state"
-    t.text     "employer_office_type"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "website"
+    t.string   "email"
+    t.string   "office_type"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

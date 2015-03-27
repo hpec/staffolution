@@ -1,3 +1,4 @@
+
 /*
 * This is a manifest file that'll be compiled into application.css, which will include all the files
 * listed below.
@@ -11,11 +12,10 @@
 *= require_self
 *= require_tree .
 *= stub active_admin
-*= require foundation_and_overrides
 
 */
-@import "bootstrap_configuration";
 
+@import "bootstrap_configuration";
 @import "bootstrap";
 
 //->Prelang (ui_framework:twitter_bootstrap)
@@ -33,4 +33,8 @@
 //->Prelang (user_login:devise)
 .form-user {
   max-width: 450px;
+}
+
+legend {
+  width: auto;
 }

@@ -7,7 +7,7 @@
 	-else
 		%h1 Welcome to the Worker Home Page!
 		= current_user.username
-	
+
 	- unless current_user.profile_created
 		= link_to "Complete your profile", current_user.profile_creation_path
 

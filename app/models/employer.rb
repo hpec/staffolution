@@ -2,21 +2,20 @@
 #
 # Table name: employers
 #
-#  id                     :integer          not null, primary key
-#  employer_name          :string(255)
-#  employer_zipcode       :string(255)
-#  employer_phone         :string(255)
-#  employer_url           :string(255)
-#  employer_email         :string(255)
-#  user_id                :integer
-#  employer_street_number :string(255)
-#  employer_street        :string(255)
-#  employer_unit_number   :string(255)
-#  employer_city          :string(255)
-#  employer_state         :string(255)
-#  employer_office_type   :text
-#  created_at             :datetime
-#  updated_at             :datetime
+#  id             :integer          not null, primary key
+#  user_id        :integer
+#  name           :string(255)
+#  phone          :string(255)
+#  website        :string(255)
+#  email          :string(255)
+#  office_type    :string(255)
+#  address_line_1 :string(255)
+#  address_line_2 :string(255)
+#  city           :string(255)
+#  state          :string(255)
+#  zipcode        :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
 #
 # Indexes
 #
@@ -27,9 +26,12 @@ class Employer < ActiveRecord::Base
   belongs_to :user
   has_many :jobs
   has_many :reviews
-  validates_formatting_of :employer_zipcode, using: :us_zip
-  validates_formatting_of :employer_phone, using: :us_phone
-  validates_formatting_of :employer_url, using: :url
-  validates_formatting_of :employer_email, using: :email
-  acts_as_votable 
+
+  validates_presence_of :name, :phone, :address_line_1, :city, :state, :zipcode
+  validates_formatting_of :zipcode, using: :us_zip, :allow_blank => true
+  validates_formatting_of :phone, using: :us_phone, :allow_blank => true
+  validates_formatting_of :website, using: :url, :allow_blank => true
+  validates_formatting_of :email, using: :email, :allow_blank => true
+
+  acts_as_votable
 end
