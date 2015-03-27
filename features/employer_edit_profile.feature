@@ -6,7 +6,7 @@ Feature: edit an employer profile
 
 Background: the employer's profile already exists
 
-	Given that the following employer profile exists:
+	Given that the following Employers exists:
 
 	|ID|name				  |type			 |location|
 	|1 |Dr. Paul Smiles Office|Dentist Office|Berkeley|

@@ -7,10 +7,10 @@ Feature: create a staffolution account as a worker
 Scenario: create worker account
 	When I am on the home page
 	And I follow "Find a job"
-        And I should see "Username"
+    Then I should see "Username"
 	And I fill user_username with 'joesbro'
-        And I fill user_email with 'alphalambda@hotmail.com'
+	And I fill user_email with 'alphalambda@hotmail.com'
 	And I fill user_password_confirmation with '87654321'
 	And I fill user_password with '87654321'
 	And I press "Sign Up"
-	Then I should be on the worker home page
+	Then I should be on the employee profile page

@@ -20,7 +20,7 @@
 #  name                   :string(255)
 #  username               :string(255)
 #  is_employer            :boolean
-#  profile_created        :bool
+#  profile_created        :boolean
 #
 # Indexes
 #

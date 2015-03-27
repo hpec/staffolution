@@ -12,4 +12,4 @@ Scenario: create worker profile
 	And I fill in age with '23'
 	And I fill in location with 'Berkeley'
 	And I press "Post profile"
-	Then I should be on my profile page
+	Then I should be on the worker home page

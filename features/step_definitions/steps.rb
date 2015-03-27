@@ -51,21 +51,33 @@ end
 
 Then(/^I should see "(.*?)"$/) do |content|
   assert page.body.include? content
-  #pending
 end
 
-Then(/^I should be on the employer home page$/) do
-  assert page.body.include? "Employer Home Page"
-  #pending
+Then(/^I should see '(.*?)'$/) do |content|
+  assert page.body.include? content
 end
 
-Then(/^I should be on the worker home page$/) do
-  assert page.body.include? "Worker Home Page"
-  #pending
+Then(/^I should not see '(.*?)'$/) do |content|
+  assert not(page.body.include? content)
+end
+
+Then(/^I should not see "(.*?)"$/) do |content|
+  assert not(page.body.include? content)
 end
 
 Then(/^I should be on the login page$/) do
   assert not(page.body.include? "Index")
   assert not(page.body.include? "Home Page")
-  #pending
+end
+
+Then(/^I should be on the employer home page$/) do
+  pending
+end
+
+Then(/^I should be on the worker home page$/) do
+  pending
+end
+
+Then(/^I should be on the (.*) page$/) do |page_title|
+  assert page.body.downcase.include?(page_title), "Not on #{page_title} page!"
 end
