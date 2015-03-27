@@ -37,11 +37,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if not resource.profile_created
-      if resource.is_employer
-        new_employer_path
-      else
-        new_employee_path
-      end
+      resource.profile_creation_path
     else
       request.env['omniauth.origin'] || stored_location_for(resource) || root_path
     end

@@ -2,12 +2,15 @@
 - if user_signed_in?
 	-if current_user.is_employer
 		%h1 Welcome to the Employer Home Page!
-		=current_user.username
+		= current_user.username
 		%p .........
 	-else
 		%h1 Welcome to the Worker Home Page!
-		=current_user.username
-		%p .........
+		= current_user.username
+	
+	- unless current_user.profile_created
+		= link_to "Complete your profile", current_user.profile_creation_path
+
 -else
 	%p welcome
 	= link_to "Find a job", new_user_registration_path(:employee => 1), :class => "btn btn-primary btn-lg"

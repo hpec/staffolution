@@ -33,6 +33,8 @@ class EmployersController < ApplicationController
 
     respond_to do |format|
       if @employer.save
+        @employer.user.profile_created = true
+        @employer.user.save
         format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
         format.json { render action: 'show', status: :created, location: @employer }
       else

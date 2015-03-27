@@ -11,6 +11,7 @@
 *= require_self
 *= require_tree .
 *= stub active_admin
+*= require foundation_and_overrides
 
 */
 @import "bootstrap_configuration";

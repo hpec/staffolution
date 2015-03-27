@@ -36,6 +36,16 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  include Rails.application.routes.url_helpers
+
+  def profile_creation_path
+    if is_employer
+      new_employer_path
+    else
+      new_employee_path
+    end
+  end
+
   #->Prelang (user_login/devise)
   has_many :reviews
   # def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
