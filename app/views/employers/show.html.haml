@@ -3,39 +3,36 @@
   %h1= t '.title', :default => Employer
 .fieldset
   %dl
-    %dt.label.label-default= model_class.human_attribute_name(:employer_name)
+    %dt.label.label-default= model_class.human_attribute_name(:name)
     %dd
-      %pre.prettyprint= @employer.employer_name
-    %dt.label.label-default= model_class.human_attribute_name(:employer_zipcode)
+      %pre.prettyprint= @employer.name
+    %dt.label.label-default= model_class.human_attribute_name(:zipcode)
     %dd
-      %pre.prettyprint= @employer.employer_zipcode
-    %dt.label.label-default= model_class.human_attribute_name(:employer_phone)
+      %pre.prettyprint= @employer.zipcode
+    %dt.label.label-default= model_class.human_attribute_name(:phone)
     %dd
-      %pre.prettyprint= @employer.employer_phone
-    %dt.label.label-default= model_class.human_attribute_name(:employer_url)
+      %pre.prettyprint= @employer.phone
+    %dt.label.label-default= model_class.human_attribute_name(:website)
     %dd
-      %pre.prettyprint= @employer.employer_url
-    %dt.label.label-default= model_class.human_attribute_name(:employer_email)
+      %pre.prettyprint= @employer.website
+    %dt.label.label-default= model_class.human_attribute_name(:email)
     %dd
-      %pre.prettyprint= @employer.employer_email
-    %dt.label.label-default= model_class.human_attribute_name(:employer_street_number)
+      %pre.prettyprint= @employer.email
+    %dt.label.label-default= model_class.human_attribute_name(:address_line_1)
     %dd
-      %pre.prettyprint= @employer.employer_street_number
-    %dt.label.label-default= model_class.human_attribute_name(:employer_street)
+      %pre.prettyprint= @employer.address_line_1
+    %dt.label.label-default= model_class.human_attribute_name(:address_line_2)
     %dd
-      %pre.prettyprint= @employer.employer_street
-    %dt.label.label-default= model_class.human_attribute_name(:employer_unit_number)
+      %pre.prettyprint= @employer.address_line_2
+    %dt.label.label-default= model_class.human_attribute_name(:city)
     %dd
-      %pre.prettyprint= @employer.employer_unit_number
-    %dt.label.label-default= model_class.human_attribute_name(:employer_city)
+      %pre.prettyprint= @employer.city
+    %dt.label.label-default= model_class.human_attribute_name(:state)
     %dd
-      %pre.prettyprint= @employer.employer_city
-    %dt.label.label-default= model_class.human_attribute_name(:employer_state)
+      %pre.prettyprint= @employer.state
+    %dt.label.label-default= model_class.human_attribute_name(:office_type)
     %dd
-      %pre.prettyprint= @employer.employer_state
-    %dt.label.label-default= model_class.human_attribute_name(:employer_office_type)
-    %dd
-      %pre.prettyprint= @employer.employer_office_type
+      %pre.prettyprint= @employer.office_type
 .form-group
   = link_to t('.back', :default => t("helpers.links.back")), |
     employers_path, :class => 'btn btn-default'              |

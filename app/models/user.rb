@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, omniauth_providers: [:facebook]
 
+  has_one :employer
+
   include Rails.application.routes.url_helpers
 
   def profile_creation_path
@@ -43,6 +45,14 @@ class User < ActiveRecord::Base
       new_employer_path
     else
       new_employee_path
+    end
+  end
+
+  def profile_path
+    if is_employer
+      employer_path(self.employer)
+    else
+      employee_path(self.employer)
     end
   end
 
@@ -64,7 +74,7 @@ class User < ActiveRecord::Base
 
 
   attr_accessor :login
-  
+
   #->Prelang (user_login:devise/username_login_support)
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
