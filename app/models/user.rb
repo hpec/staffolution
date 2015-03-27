@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook]
 
   has_one :employer
+  has_one :employee
 
   include Rails.application.routes.url_helpers
 
@@ -50,9 +51,17 @@ class User < ActiveRecord::Base
 
   def profile_path
     if is_employer
-      employer_path(self.employer)
+      if self.employer
+        employer_path(self.employer)
+      else
+        new_employer_path
+      end
     else
-      employee_path(self.employer)
+      if self.employee
+        employee_path(self.employee)
+      else
+        new_employee_path
+      end
     end
   end
 
