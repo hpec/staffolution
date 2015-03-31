@@ -32,15 +32,16 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-  	describe User do
+  	describe Employer do
 
-		before(:each) { @user = User.new(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678') }
+		before(:each) { @user = User.new(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true) }
 
 		subject { @user }
 
 		it { should respond_to(:email) }
 		it { should respond_to(:username) }
 		it { should respond_to(:name) }
+		it { should respond_to(:is_employer) }
 		it "#email returns a string" do
 			expect(@user.email).to match 'user@example.com'
 		end
@@ -53,11 +54,23 @@ RSpec.describe User, :type => :model do
 		it "#name returns a string" do
 			expect(@user.name).to match 'F_L'
 		end
+		it "#is_employer returns a boolean"
+			expect(@user.is_employer).to match true
+		end
 		it "#should raise" do
 			@user1=User.new(email: 'user1@example.com', username: 'user2' ,password:'12345678')
 			@user1.save!
 			@user2=User.create(email: 'user1@example.com', username: 'user3', password:'12345678')
 			expect{@user2.save!}.to raise_error()
 		end
+	end
+	describe Employee do
+		before(:each) { @user = User.new(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: false) }
+
+		subject { @user }
+		it { should respond_to(:is_employer) }
+		it "#is_employer returns a boolean"
+			expect(@user.is_employer).to match false
+		end		
 	end
 end
