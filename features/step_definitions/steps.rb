@@ -45,12 +45,41 @@ When(/^I follow "(.*?)"$/) do |link|
   click_link(link)
 end
 
+When(/^I create test employee 1$/) do
+  fill_in('employee_employee_first_name', :with=> 'Joe')
+  fill_in('employee_employee_last_name', :with=> 'shmoe')
+  fill_in('employee_employee_phone', :with=> '1234567890')
+  fill_in('employee_employee_school', :with=> 'UC Berkeley')
+  fill_in('employee_employee_experience_years', :with=> '1')
+  fill_in('employee_employee_experience_months', :with=> '9')
+  fill_in('employee_employee_lic_number', :with=> '1234ABCD')
+  fill_in('employee_employee_qualifications', :with=> 'fantastic hair')
+  fill_in('employee_employee_languages', :with=> 'English, Spanish, Pig Latin')
+  fill_in('employee_employee_description', :with=> 'pls hire me I need $')
+  fill_in('employee_employee_zipcode', :with=> '94720')
+  click_button("Create Employee")
+end
+
 Then(/^I should see "(.*?)"$/) do |content|
   assert page.body.include? content
 end
 
 Then(/^I should see '(.*?)'$/) do |content|
   assert page.body.include? content
+end
+
+Then(/^I should view test employee 1$/) do
+  assert page.body.include? 'Joe'
+  assert page.body.include? 'shmoe'
+  assert page.body.include? '1234567890'
+  assert page.body.include? 'UC Berkeley'
+  assert page.body.include? '1'
+  assert page.body.include? '9'
+  assert page.body.include? '1234ABCD'
+  assert page.body.include? 'fantastic hair'
+  assert page.body.include? 'English, Spanish, Pig Latin'
+  assert page.body.include? 'pls hire me I need $'
+  assert page.body.include? '94720'
 end
 
 Then(/^I should not see '(.*?)'$/) do |content|

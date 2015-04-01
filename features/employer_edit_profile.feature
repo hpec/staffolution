@@ -12,7 +12,7 @@ Background: the employer's profile already exists
 	|1 |Dr. Paul Smiles Office|Dentist Office|Berkeley|
 
 Scenario: edit employer profile
-	When I am on the employer home page
+	When I'm on the employer home page
 	And I follow "Edit my profile"
 	And I fill in location with 'San Francisco'
 	And I press "Post profile"
