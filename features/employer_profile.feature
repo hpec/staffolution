@@ -16,23 +16,6 @@ Scenario: create worker profile
 	And I fill user_login with 'joeshmoe'
 	And I fill user_password with '12345678'
 	And I press "Login"
-	And I fill employer_name with 'Joe's repair'
-	And I fill employer_phone with '1234567890'
-	And I fill Website with 'http://www.joe.com/'
-	And I fill Email with 'joerepair@b.com'
-	And I fill Address line 1 with '123 Road St'
-	And I fill City with 'Berkeley'
-	And I fill State with 'CA'
-	And I fill Zipcode with '94720'
-	And I fill Office type with 'repair'
-	And I press "Create Employer"
+	And I create test employer 1
 	Then I should see "Employer"
-	And I should see 'Joe's repair'
-	And I should see '1234567890'
-	And I should see 'http://www.joe.com/'
-	And I should see 'joerepair@b.com'
-	And I should see '123 Road St'
-	And I should see 'Berkeley'
-	And I should see 'CA'
-	And I should see '94720'
-	And I should see 'repair'
+	And I should view test employer 1

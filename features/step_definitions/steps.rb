@@ -60,6 +60,20 @@ When(/^I create test employee 1$/) do
   click_button("Create Employee")
 end
 
+When(/^I create test employer 1$/) do
+  fill_in('employer_name', :with=> "Joe's repair")
+  fill_in('employer_phone', :with=> '1234567890')
+  fill_in('Website', :with=> 'http://www.joe.com/')
+  fill_in('Email', :with=> 'joerepair@b.com')
+  fill_in('Address line 1', :with=> '123 Road St')
+  fill_in('City', :with=> 'Berkeley')
+  fill_in('State', :with=> 'CA')
+  fill_in('Zipcode', :with=> '94720')
+  fill_in('Office type', :with=> 'repair')
+  click_button("Create Employer")
+end
+
+
 Then(/^I should see "(.*?)"$/) do |content|
   assert page.body.include? content
 end
@@ -80,6 +94,18 @@ Then(/^I should view test employee 1$/) do
   assert page.body.include? 'English, Spanish, Pig Latin'
   assert page.body.include? 'pls hire me I need $'
   assert page.body.include? '94720'
+end
+
+Then(/^I should view test employer 1$/) do
+  assert page.body.include? "Joe's repair"
+  assert page.body.include? '1234567890'
+  assert page.body.include? 'http://www.joe.com/'
+  assert page.body.include? 'joerepair@b.com'
+  assert page.body.include? '123 Road St'
+  assert page.body.include? 'Berkeley'
+  assert page.body.include? 'CA'
+  assert page.body.include? '94720'
+  assert page.body.include? 'repair'
 end
 
 Then(/^I should not see '(.*?)'$/) do |content|
