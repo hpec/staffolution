@@ -72,6 +72,7 @@ When(/^I create test employer 1$/) do
   fill_in('Zipcode', :with=> '94720')
   fill_in('Office type', :with=> 'repair')
   click_button("Create Employer")
+  assert page.body.include? "successfully created"
 end
 
 
