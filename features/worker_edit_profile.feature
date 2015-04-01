@@ -17,8 +17,8 @@ Scenario: edit employer profile
 	And I fill user_password with '12345678'
 	And I press "Login"
 	And I create test employee 1
-	And I follow "translation_missing"
-	And Print page
+        And Print page
+	And I follow "Back"
 	And I should see "Personal Info"
 	And I fill employee_employee_school with 'Stanford'
 	And I press "Update Employee"

@@ -57,7 +57,8 @@ When(/^I create test employee 1$/) do
   fill_in('employee_employee_languages', :with=> 'English, Spanish, Pig Latin')
   fill_in('employee_employee_description', :with=> 'pls hire me I need $')
   fill_in('employee_employee_zipcode', :with=> '94720')
-  click_button("Create Employee")
+  click_button("Submit")
+  assert page.body.include? "successfully created"
 end
 
 When(/^I create test employer 1$/) do
@@ -106,6 +107,10 @@ Then(/^I should view test employer 1$/) do
   assert page.body.include? 'CA'
   assert page.body.include? '94720'
   assert page.body.include? 'repair'
+end
+
+Then(/^Print page$/) do
+  puts(page.body)
 end
 
 Then(/^I should not see '(.*?)'$/) do |content|

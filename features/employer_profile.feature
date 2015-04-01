@@ -17,5 +17,5 @@ Scenario: create worker profile
 	And I fill user_password with '12345678'
 	And I press "Login"
 	And I create test employer 1
-	Then I should see "Employer"
+	Then I should see "sucessfully created"
 	And I should view test employer 1
