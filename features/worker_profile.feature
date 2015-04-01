@@ -26,10 +26,8 @@ Scenario: create worker profile
 	And I fill employee_employee_qualifications with 'fantastic hair'
 	And I fill employee_employee_languages with 'English, Spanish, Pig Latin'
 	And I fill employee_employee_description with 'pls hire me I need $'
-	And I fill Address line 1 with '123 Road St'
-	And I fill City with 'Berkeley'
-	And I fill State with 'CA'
-	And I fill Zipcode with '94720'
+	And I fill employee_employee_zipcode with '94720'
+	And I fill employee_employee_email with 'joe@b.com'
 	And I press "Create Employee"
 	Then I should see "Employee"
 	And I should see 'Joe'
@@ -42,7 +40,5 @@ Scenario: create worker profile
 	And I should see 'fantastic hair'
 	And I should see 'English, Spanish, Pig Latin'
 	And I should see 'pls hire me I need $'
-	And I should see '123 Road St'
-	And I should see 'Berkeley'
-	And I should see 'CA'
 	And I should see '94720'
+	And I should see 'joe@b.com'
