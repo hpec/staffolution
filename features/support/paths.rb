@@ -20,8 +20,6 @@ module NavigationHelpers
     when /^the employer signup page$/ then '/signup?employer=1'
     when /^the worker profile creation page$/ then '/employees/new'
     when /^the employer profile creation page$/ then '/employers/new'
-    when /^the worker home page$/ then pending
-    when /^the employer home page$/ then pending
 
     else
       begin

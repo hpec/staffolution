@@ -19,4 +19,4 @@ Scenario: log in to worker account
 	And I fill user_login with 'joeshmoe'
 	And I fill user_password with '12345678'
 	And I press "Login"
-	Then I should be on the worker home page
+	And I should see "Employee Profile"

@@ -27,7 +27,6 @@ Given(/^that the following Users exist:$/) do |users_table|
     click_link("Account")
     click_link("Sign Out")
   end
-  #pending
 end
 
 Given /^(?:|I )am on (.+)$/ do |page_name|
@@ -36,17 +35,14 @@ end
 
 When(/^I fill (.*) with '(.*)'$/) do |field, value|
   fill_in(field, :with => value)
-  #pending
 end
 
 When(/^I press "(.*?)"$/) do |button|
   click_button(button)
-  #pending
 end
 
 When(/^I follow "(.*?)"$/) do |link|
   click_link(link)
-  #pending
 end
 
 Then(/^I should see "(.*?)"$/) do |content|
@@ -68,14 +64,6 @@ end
 Then(/^I should be on the login page$/) do
   assert not(page.body.include? "Index")
   assert not(page.body.include? "Home Page")
-end
-
-Then(/^I should be on the employer home page$/) do
-  pending
-end
-
-Then(/^I should be on the worker home page$/) do
-  pending
 end
 
 Then(/^I should be on the (.*) page$/) do |page_title|

@@ -13,4 +13,4 @@ Scenario: create employer account
 	And I fill user_password with '44444444'
 	And I fill user_password_confirmation with '44444444'
 	And I press "Sign Up"
-	Then I should be on the employer profile page
+	And I should see "Employer Profile"

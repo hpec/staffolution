@@ -17,4 +17,4 @@ Scenario: log in to employer account
 	And I fill user_login with 'fatcat'
 	And I fill user_password with '77777777'
 	And I press "Login"
-	Then I should be on the employer home page
+	And I should see "Employer Profile"

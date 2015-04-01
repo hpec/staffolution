@@ -13,4 +13,4 @@ Scenario: create worker account
 	And I fill user_password_confirmation with '87654321'
 	And I fill user_password with '87654321'
 	And I press "Sign Up"
-	Then I should be on the employee profile page
+	And I should see "Employee Profile"
