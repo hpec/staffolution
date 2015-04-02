@@ -68,23 +68,7 @@ RSpec.describe User, :type => :model do
 		before(:each) { @user = User.new(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: false) }
 
 		subject { @user }
-
-		it { should respond_to(:email) }
-		it { should respond_to(:username) }
-		it { should respond_to(:name) }
 		it { should respond_to(:is_employer) }
-		it "#email returns a string" do
-			expect(@user.email).to match 'user@example.com'
-		end
-		it "#username returns a string" do
-			expect(@user.username).to match 'user1'
-		end
-		it "#id returns a int" do
-			expect(@user.id).to match 1
-		end
-		it "#name returns a string" do
-			expect(@user.name).to match 'F_L'
-		end
 		it "#is_employer returns a boolean" do
 			expect(@user.is_employer).to match false
 		end		
