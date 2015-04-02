@@ -54,7 +54,7 @@ RSpec.describe User, :type => :model do
 		it "#name returns a string" do
 			expect(@user.name).to match 'F_L'
 		end
-		it "#is_employer returns a boolean"
+		it "#is_employer returns a boolean" do
 			expect(@user.is_employer).to match true
 		end
 		it "#should raise" do
@@ -69,7 +69,7 @@ RSpec.describe User, :type => :model do
 
 		subject { @user }
 		it { should respond_to(:is_employer) }
-		it "#is_employer returns a boolean"
+		it "#is_employer returns a boolean" do
 			expect(@user.is_employer).to match false
 		end		
 	end
