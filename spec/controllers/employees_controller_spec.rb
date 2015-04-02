@@ -35,7 +35,21 @@ RSpec.describe EmployeesController, :type => :controller do
 #   # in order to pass any filters (e.g. authentication) defined in
 #   # EmployeesController. Be sure to keep this updated too.
 #   let(:valid_session) { {} }
-
+  describe 'vote' do
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
+    end
+    it 'should be successful' do
+      employee = FactoryGirl.create(:employee)
+      get :vote, :id=>1,:direction=>"like"
+      expect(response).to redirect_to(action: :index)
+    end
+    it 'should not be successful' do
+      employee = FactoryGirl.create(:employee)
+      expect { get :vote, :id=>1,:direction=>"what" 
+        }.to raise_error
+    end
+  end
   describe "GET index" do
     before(:each) do
       sign_in FactoryGirl.create(:user)

@@ -19,6 +19,21 @@ require 'rails_helper'
 # # that an instance is receiving a specific message.
 
 RSpec.describe EmployersController, :type => :controller do
+  describe 'vote' do
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
+    end
+    it 'should be successful' do
+      employer = FactoryGirl.create(:employer)
+      get :vote, :id=>1,:direction=>"like"
+      expect(response).to redirect_to(action: :index)
+    end
+    it 'should not be successful' do
+      employer = FactoryGirl.create(:employer)
+      expect { get :vote, :id=>1,:direction=>"what" 
+        }.to raise_error
+    end
+  end
   describe 'create' do
     it 'should create a new employer' do
       EmployersController.stub(:create).and_return(double('Employer'))
