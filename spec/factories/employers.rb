@@ -26,17 +26,14 @@
 
 FactoryGirl.define do
   factory :employer do
-    employer_name "MyString"
-    employer_zipcode "MyString"
-    employer_phone "MyString"
-    employer_url "MyString"
-    employer_email "MyString"
+    id 1
+    name "MyString"
+    zipcode 12345
+    phone 1234567898
+    email 'example@example.com'
     user nil
-    employer_street_number "MyString"
-    employer_street "MyString"
-    employer_unit_number "MyString"
-    employer_city "MyString"
-    employer_state "MyString"
-    employer_office_type "MyText"
+    address_line_1 "MyString"
+    city "MyString"
+    state "MyString"
   end
 end
