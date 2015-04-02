@@ -69,9 +69,9 @@ RSpec.describe EmployeesController, :type => :controller do
 
   describe "POST create" do
     describe "with valid params" do
-	  	before(:each) do
-	    	sign_in FactoryGirl.create(:user)
-	  	end
+      before(:each) do
+        sign_in FactoryGirl.create(:user)
+      end
       it "creates a new Employee" do
         expect {
           post :create, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}
@@ -103,31 +103,33 @@ RSpec.describe EmployeesController, :type => :controller do
     # end
   end
 
-#   describe "PUT update" do
-#     describe "with valid params" do
-#       let(:new_attributes) {
-#         skip("Add a hash of attributes valid for your model")
-#       }
+  describe "PUT update" do
+    describe "with valid params" do
+      # let(:new_attributes) {
+      #   skip("Add a hash of attributes valid for your model")
+      # }
+      before(:each) do
+        sign_in FactoryGirl.create(:user)
+      end
+      it "updates the requested employee" do
+        employee = FactoryGirl.create(:employee)
+        put :update, {:id => 1, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
+        employee.reload
+        expect(employee.employee_email).to eq('user@example.com')
+      end
 
-#       it "updates the requested employee" do
-#         employee = Employee.create! valid_attributes
-#         put :update, {:id => employee.to_param, :employee => new_attributes}, valid_session
-#         employee.reload
-#         skip("Add assertions for updated state")
-#       end
+      # it "assigns the requested employee as @employee" do
+      #   employee = Employee.create! valid_attributes
+      #   put :update, {:id => employee.to_param, :employee => valid_attributes}, valid_session
+      #   expect(assigns(:employee)).to eq(employee)
+      # end
 
-#       it "assigns the requested employee as @employee" do
-#         employee = Employee.create! valid_attributes
-#         put :update, {:id => employee.to_param, :employee => valid_attributes}, valid_session
-#         expect(assigns(:employee)).to eq(employee)
-#       end
-
-#       it "redirects to the employee" do
-#         employee = Employee.create! valid_attributes
-#         put :update, {:id => employee.to_param, :employee => valid_attributes}, valid_session
-#         expect(response).to redirect_to(employee)
-#       end
-#     end
+      it "redirects to the employee" do
+        employee = FactoryGirl.create(:employee)
+        put :update, {:id => 1, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
+        expect(response).to redirect_to(employee)
+      end
+    end
 
 #     describe "with invalid params" do
 #       it "assigns the employee as @employee" do
@@ -142,12 +144,12 @@ RSpec.describe EmployeesController, :type => :controller do
 #         expect(response).to render_template("edit")
 #       end
 #     end
-#   end
+  end
 
   describe "DELETE destroy" do
-  	before(:each) do
-    	sign_in FactoryGirl.create(:user)
-  	end
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
+    end
     it "destroys the requested employee" do
       employee = FactoryGirl.create(:employee)
       expect {
