@@ -36,13 +36,16 @@ RSpec.describe EmployeesController, :type => :controller do
 #   # EmployeesController. Be sure to keep this updated too.
 #   let(:valid_session) { {} }
 
-#   describe "GET index" do
-#     it "assigns all employees as @employees" do
-#       employee = Employee.create! valid_attributes
-#       get :index, {}, valid_session
-#       expect(assigns(:employees)).to eq([employee])
-#     end
-#   end
+  describe "GET index" do
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
+    end
+    it "assigns all employees as @employees" do
+      employee = FactoryGirl.create(:employee)
+      get :index, {}
+      expect(assigns(:employees)).to eq([employee])
+    end
+  end
 
 #   describe "GET show" do
 #     it "assigns the requested employee as @employee" do
@@ -90,17 +93,20 @@ RSpec.describe EmployeesController, :type => :controller do
       end
     end
 
-    # describe "with invalid params" do
-    #   it "assigns a newly created but unsaved employee as @employee" do
-    #     post :create, {:employee => invalid_attributes}, valid_session
-    #     expect(assigns(:employee)).to be_a_new(Employee)
-    #   end
+    describe "with invalid params" do
+      before(:each) do
+        sign_in FactoryGirl.create(:user)
+      end
+      # it "assigns a newly created but unsaved employee as @employee" do
+      #   post :create, {:employee => invalid_attributes}, valid_session
+      #   expect(assigns(:employee)).to be_a_new(Employee)
+      # end
 
-    #   it "re-renders the 'new' template" do
-    #     post :create, {:employee => invalid_attributes}, valid_session
-    #     expect(response).to render_template("new")
-    #   end
-    # end
+      it "re-renders the 'new' template" do
+        post :create, :employee => {:employee_email=> 'user', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}
+        expect(response).to render_template("new")
+      end
+    end
   end
 
   describe "PUT update" do
@@ -131,19 +137,21 @@ RSpec.describe EmployeesController, :type => :controller do
       end
     end
 
-#     describe "with invalid params" do
-#       it "assigns the employee as @employee" do
-#         employee = Employee.create! valid_attributes
-#         put :update, {:id => employee.to_param, :employee => invalid_attributes}, valid_session
-#         expect(assigns(:employee)).to eq(employee)
-#       end
-
-#       it "re-renders the 'edit' template" do
-#         employee = Employee.create! valid_attributes
-#         put :update, {:id => employee.to_param, :employee => invalid_attributes}, valid_session
-#         expect(response).to render_template("edit")
-#       end
-#     end
+    describe "with invalid params" do
+      before(:each) do
+        sign_in FactoryGirl.create(:user)
+      end
+      # it "assigns the employee as @employee" do
+      #   employee = Employee.create! valid_attributes
+      #   put :update, {:id => employee.to_param, :employee => invalid_attributes}, valid_session
+      #   expect(assigns(:employee)).to eq(employee)
+      # end
+      it "re-renders the 'edit' template" do
+        employee = FactoryGirl.create(:employee)
+        put :update, {:id => 1, :employee => {:employee_email=> 'user', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
+        expect(response).to render_template("edit")
+      end
+    end
   end
 
   describe "DELETE destroy" do

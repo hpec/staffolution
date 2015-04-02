@@ -41,13 +41,16 @@ RSpec.describe EmployersController, :type => :controller do
 #   # EmployersController. Be sure to keep this updated too.
 #   let(:valid_session) { {} }
 
-#   describe "GET index" do
-#     it "assigns all employers as @employers" do
-#       employer = Employer.create!(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
-#       get :index, {}, valid_session
-#       expect(assigns(:employers)).to eq([employer])
-#     end
-#   end
+  describe "GET index" do
+    before(:each) do
+      sign_in FactoryGirl.create(:user)
+    end
+    it "assigns all employers as @employers" do
+      employer = FactoryGirl.create(:employer)
+      get :index, {}
+      expect(assigns(:employers)).to eq([employer])
+    end
+  end
 
 #   describe "GET show" do
 #     it "assigns the requested employer as @employer" do
@@ -94,17 +97,16 @@ RSpec.describe EmployersController, :type => :controller do
       end
     end
 
-    # describe "with invalid params" do
-    #   it "assigns a newly created but unsaved employer as @employer" do
-    #     post :create, {:employer => invalid_attributes}, valid_session
-    #     expect(assigns(:employer)).to be_a_new(Employer)
-    #   end
+    describe "with invalid params" do
+      before(:each) do
+        sign_in FactoryGirl.create(:user)
+      end
 
-    #   it "re-renders the 'new' template" do
-    #     post :create, {:employer => invalid_attributes}, valid_session
-    #     expect(response).to render_template("new")
-    #   end
-    # end
+      it "re-renders the 'new' template" do
+        post :create, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}
+        expect(response).to render_template("new")
+      end
+    end
   end
 
   describe "PUT update" do
@@ -135,19 +137,22 @@ RSpec.describe EmployersController, :type => :controller do
       end
     end
 
-#     describe "with invalid params" do
-#       it "assigns the employer as @employer" do
-#         employer = Employer.create! valid_attributes
-#         put :update, {:id => employer.to_param, :employer => invalid_attributes}, valid_session
-#         expect(assigns(:employer)).to eq(employer)
-#       end
+    describe "with invalid params" do
+      before(:each) do
+        sign_in FactoryGirl.create(:user)
+      end
+      # it "assigns the employer as @employer" do
+      #   employer = Employer.create! valid_attributes
+      #   put :update, {:id => employer.to_param, :employer => invalid_attributes}, valid_session
+      #   expect(assigns(:employer)).to eq(employer)
+      # end
 
-#       it "re-renders the 'edit' template" do
-#         employer = Employer.create! valid_attributes
-#         put :update, {:id => employer.to_param, :employer => invalid_attributes}, valid_session
-#         expect(response).to render_template("edit")
-#       end
-#     end
+      it "re-renders the 'edit' template" do
+        employer = FactoryGirl.create(:employer)
+        put :update, {:id => 1, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}}
+        expect(response).to render_template("edit")
+      end
+    end
   end
 
   describe "DELETE destroy" do
