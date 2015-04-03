@@ -57,26 +57,28 @@ When(/^I create test employee 1$/) do
   fill_in('employee_employee_languages', :with=> 'English, Spanish, Pig Latin')
   fill_in('employee_employee_description', :with=> 'pls hire me I need $')
   fill_in('employee_employee_zipcode', :with=> '94720')
-  click_button("Submit")
-  assert page.body.include? "successfully created"
+  fill_in('employee_employee_email', :with=> 'joerepair@b.com')
+  click_button("Create Employee")
+  assert page.body.include? "Employee was successfully created"
 end
 
 When(/^I create test employer 1$/) do
   fill_in('employer_name', :with=> "Joe's repair")
   fill_in('employer_phone', :with=> '1234567890')
-  fill_in('Website', :with=> 'http://www.joe.com/')
-  fill_in('Email', :with=> 'joerepair@b.com')
-  fill_in('Address line 1', :with=> '123 Road St')
-  fill_in('City', :with=> 'Berkeley')
-  fill_in('State', :with=> 'CA')
-  fill_in('Zipcode', :with=> '94720')
-  fill_in('Office type', :with=> 'repair')
+  fill_in('employer_website', :with=> 'http://www.joe.com/')
+  fill_in('employer_email', :with=> 'joerepair@b.com')
+  fill_in('employer_address_line_1', :with=> '123 Road St')
+  fill_in('employer_city', :with=> 'Berkeley')
+  fill_in('employer_state', :with=> 'CA')
+  fill_in('employer_zipcode', :with=> '94720')
+  fill_in('employer_office_type', :with=> 'repair')
   click_button("Create Employer")
   assert page.body.include? "successfully created"
 end
 
 
 Then(/^I should see "(.*?)"$/) do |content|
+  # puts page.body
   assert page.body.include? content
 end
 
