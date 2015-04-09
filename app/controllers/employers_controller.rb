@@ -19,6 +19,7 @@ class EmployersController < ApplicationController
   # GET /employers/new
   def new
     @employer = Employer.new
+    @employer.email = current_user.email
   end
 
   # GET /employers/1/edit

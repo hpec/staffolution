@@ -48,3 +48,14 @@ legend.fieldset-title {
     padding:0 3px; /* To give a bit of padding on the left and right */
     border-bottom:none;
 }
+
+
+.row.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.row.no-gutters > [class^="col-"],
+.row.no-gutters > [class*=" col-"] {
+  padding-right: 0;
+  padding-left: 0;
+}

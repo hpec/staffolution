@@ -9,17 +9,21 @@
   %fieldset
     %legend.fieldset-title Basic Info
     .form-group
-      = f.label :company_name
+      = f.label :name, 'Company Name'
       = f.text_field :name
     .form-group
       = f.label :phone
       = f.text_field :phone
     .form-group
-      = f.label :website
-      = f.text_field :website
-    .form-group
       = f.label :email
       = f.email_field :email
+    .form-group
+      = f.label :website
+      .row.no-gutters
+        .col-xs-1
+          %span.prefix http://
+        .col-xs-11
+          = f.text_field :website
 
   %fieldset
     %legend.fieldset-title Address
