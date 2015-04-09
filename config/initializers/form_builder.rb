@@ -1,4 +1,4 @@
-class ActionView::Helpers::FormBuilder
+class RequiredFormBuilder < ActionView::Helpers::FormBuilder
   alias :orig_label :label
 
   # add a 'required' CSS class to the field label if the field is required
