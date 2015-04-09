@@ -39,6 +39,8 @@ class User < ActiveRecord::Base
   has_one :employer
   has_one :employee
 
+  validates :username, presence: true, uniqueness: true
+
   include Rails.application.routes.url_helpers
 
   def profile_creation_path
