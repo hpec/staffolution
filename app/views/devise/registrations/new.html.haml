@@ -1,29 +1,25 @@
 .page-header
   %h1= t ".title", default: "Sign Up"
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal form-user"}) do |f|
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-user"}) do |f|
   = devise_error_messages!
   .form-group
-    = f.label :username, class: "control-label col-md-4"
-    .col-md-8
-      = f.text_field :username, class: "text-field form-control", html: {spellcheck: "false"}
+    = f.label :username
+    = f.text_field :username, class: "text-field form-control", html: {spellcheck: "false"}
   .form-group
-    = f.label :email, class: "control-label col-md-4"
-    .col-md-8
-      = f.email_field :email, class: "text-field form-control", html: {spellcheck: "false"}
+    = f.label :email
+    = f.email_field :email, class: "text-field form-control", html: {spellcheck: "false"}
   .form-group
-    = f.label :password, class: "control-label col-md-4"
-    .col-md-8
-      = f.password_field :password, class: "text-field form-control", html: {autocomplete: "off"}
+    = f.label :password
+    = f.password_field :password, class: "text-field form-control", html: {autocomplete: "off"}
   .form-group
-    = f.label :password_confirmation, "Password Confirmation", class: "control-label col-md-4"
-    .col-md-8
-      = f.password_field :password_confirmation, class: "text-field form-control", html: {autocomplete: "off"}
+    = f.label :password_confirmation, "Password Confirmation"
+    = f.password_field :password_confirmation, class: "text-field form-control", html: {autocomplete: "off"}
   .form-group
-    %input{:type=>"radio", :name=>"user[is_employer]", :value => "0", :checked => params[:employee] } I want to find a job
-    %input{:type=>"radio", :name=>"user[is_employer]", :value => "1", :checked => params[:employer] } I want to post a job
+    = f.radio_button :is_employer, '0', :checked => params[:employee] == '1'
+    = f.label :is_employer, "I want to find a job", :value => '0'
+    = f.radio_button :is_employer, '1', :checked => params[:employer] == '1'
+    = f.label :is_employer, "I want to post a job", :value => '1'
   .form-group
-    .col-md-offset-4.col-md-8
-      = f.submit "Sign Up", class: "btn btn-primary"
+    = f.submit "Sign Up", class: "btn btn-primary"
   .form-group
-    .col-md-offset-4.col-md-8
-      = render "devise/shared/links"
+    = render "devise/shared/links"
