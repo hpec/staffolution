@@ -3,10 +3,10 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-user"}) do |f|
   .form-group
     = f.label :login, "Username or Email"
-    = f.text_field :login, class: "text-field form-control", html: {spellcheck: "false"}
+    = f.text_field :login, html: {spellcheck: "false"}
   .form-group
     = f.label :password
-    = f.password_field :password, class: "text-field form-control", html: {autocomplete: "off"}
+    = f.password_field :password, html: {autocomplete: "off"}
   - if devise_mapping.rememberable?
     = f.label :remember_me do
       = f.check_box :remember_me
