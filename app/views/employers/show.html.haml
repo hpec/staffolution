@@ -34,14 +34,5 @@
     %dd
       %pre.prettyprint= @employer.office_type
 .form-group
-  = link_to t('.back', :default => t("helpers.links.back")), |
-    employers_path, :class => 'btn btn-default'              |
-  -#
   = link_to t('.edit', :default => t("helpers.links.edit")),   |
-    edit_employer_path(@employer), :class => 'btn btn-default' |
-  -#
-  = link_to t('.destroy', :default => t("helpers.links.destroy")),                                               |
-    employer_path(@employer),                                                                                    |
-    :method => 'delete',                                                                                         |
-    :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, |
-    :class => 'btn btn-danger'                                                                                   |
+    edit_employer_path(@employer), :class => 'btn btn-default'                                                                                 |
