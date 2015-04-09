@@ -1,4 +1,4 @@
-= form_for @employee do |f|
+= form_for @employee, builder: RequiredFormBuilder do |f|
   - if @employee.errors.any?
     #error_explanation
       .alert.alert-danger
@@ -6,58 +6,55 @@
         - @employee.errors.full_messages.each do |msg|
           %li
             = msg
-  .row
-    .large-12.columns
-      %fieldset
-        %legend Personal Info
+
+  %fieldset
+    %legend.fieldset-title Personal Info
+
+    .row
+      .col-xs-6
         = f.label :first_name
         = f.text_field :employee_first_name
-
+      .col-xs-6
         = f.label :last_name
         = f.text_field :employee_last_name
 
-        = f.label :phone
-        = f.text_field :employee_phone
+    = f.label :phone
+    = f.text_field :employee_phone
 
-        = f.label :zipcode
-        = f.text_field :employee_zipcode
+    = f.label :email
+    = f.email_field :employee_email
 
-        = f.label :email
-        = f.email_field :employee_email
+    = f.label :zipcode
+    = f.text_field :employee_zipcode
 
-  .row
-    .large-12.columns
-      %fieldset
-        %legend Professional Info
-        = f.label :school
-        = f.text_field :employee_school
+    = f.check_box :employee_transportation
+    = f.label :able_to_commute?, {:for => "employee_employee_transportation"}
 
+  %fieldset
+    %legend.fieldset-title Professional Info
+    = f.label :school
+    = f.text_field :employee_school
+
+    .row
+      .col-xs-6
         = f.label :experience_years
-        = f.number_field :employee_experience_years
+        = f.number_field :employee_experience_years, in: 1...10
+      .col-xs-6
         = f.label :experience_months
-        = f.number_field :employee_experience_months
+        = f.number_field :employee_experience_months, in: 0...12
 
-        = f.label :license_number
-        = f.text_field :employee_lic_number
+    = f.label :license_number
+    = f.text_field :employee_lic_number
 
-        = f.label :qualifications
-        = f.text_field :employee_qualifications
+    = f.label :qualifications
+    = f.text_field :employee_qualifications
 
-        = f.label :languages
-        = f.text_field :employee_languages
+    = f.label :languages
+    = f.text_field :employee_languages
 
-  .row
-    .large-12.columns
-      %fieldset
-        %legend Additional Info
-        = f.label :self_introduction
-        = f.text_area :employee_description
+  %fieldset
+    %legend.fieldset-title Additional Info
+    = f.label :self_introduction
+    = f.text_area :employee_description
 
-        = f.check_box :employee_transportation
-        = f.label :transportation, {:for => "employee_employee_transportation"}
-
-  .row
-    .large-12.columns
-      = f.submit nil, :class => 'btn btn-primary', :id => "Submit"
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-        employers_path, :class => 'btn btn-default'                  |
+  = f.submit nil, :class => 'btn btn-primary', :id => "Submit"
