@@ -39,7 +39,12 @@ class User < ActiveRecord::Base
   has_one :employer
   has_one :employee
 
+  HUMANIZED_ATTRIBUTES = {
+    :is_employer => ""
+  }
+
   validates :username, presence: true, uniqueness: true
+  validates :is_employer, presence: { message: "Please select your account purpose" }
 
   include Rails.application.routes.url_helpers
 
@@ -96,6 +101,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.human_attribute_name(attr, options={})
+    HUMANIZED_ATTRIBUTES[attr.to_sym] || super
+  end
 
   devise authentication_keys: [:login]
 end

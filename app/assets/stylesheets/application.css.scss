@@ -35,6 +35,16 @@
   max-width: 450px;
 }
 
+.field_with_errors {
+  @extend .has-error;
+}
+
 legend {
   width: auto;
+}
+
+legend.fieldset-title {
+    width:inherit; /* Or auto */
+    padding:0 3px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
 }

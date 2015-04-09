@@ -6,50 +6,45 @@
         - @employer.errors.full_messages.each do |msg|
           %li
             = msg
-  .row
-    .large-12.columns
-      %fieldset
-        %legend Basic Info
-        = f.label :company_name
-        = f.text_field :name
+  %fieldset
+    %legend.fieldset-title Basic Info
+    .form-group
+      = f.label :company_name
+      = f.text_field :name
+    .form-group
+      = f.label :phone
+      = f.text_field :phone
+    .form-group
+      = f.label :website
+      = f.text_field :website
+    .form-group
+      = f.label :email
+      = f.email_field :email
 
-        = f.label :phone
-        = f.text_field :phone
+  %fieldset
+    %legend.fieldset-title Address
+    .form-group
+      = f.label :address_line_1
+      = f.text_field :address_line_1
+    .form-group
+      = f.label :address_line_2
+      = f.text_field :address_line_2
+    .form-group
+      .row
+        .col-xs-4
+          = f.label :city
+          = f.text_field :city
+        .col-xs-4
+          = f.label :state
+          = f.text_field :state
+        .col-xs-3.pull-right
 
-        = f.label :website
-        = f.text_field :website
+          = f.label :zipcode
+          = f.text_field :zipcode
 
-        = f.label :email
-        = f.email_field :email
+    .form-group
+      = f.label :office_type
+      = f.text_area :office_type
 
-  .row
-    .large-12.columns
-      %fieldset
-        %legend Address
-        = f.label :address_line_1
-        = f.text_field :address_line_1
-
-        = f.label :address_line_2
-        = f.text_field :address_line_2
-
-        .row
-          .large-4.columns
-            = f.label :city
-            = f.text_field :city
-          .large-4.columns
-            = f.label :state
-            = f.text_field :state
-          .large-2.columns
-            = f.label :zipcode
-            = f.text_field :zipcode
-
-        .row
-          .large-12.columns
-            = f.label :office_type
-            = f.text_area :office_type
-
-  .row
-    .large-12.columns
-      = f.submit nil, :class => 'btn btn-primary'
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-        employers_path, :class => 'btn btn-default'                  |
+  .form-group
+    = f.submit nil, :class => 'btn btn-primary'
