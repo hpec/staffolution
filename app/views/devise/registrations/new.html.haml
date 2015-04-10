@@ -15,9 +15,9 @@
     = f.label :password_confirmation, "Password Confirmation"
     = f.password_field :password_confirmation, html: {autocomplete: "off"}
   .form-group
-    = f.radio_button :is_employer, '0', :checked => params[:employee] == '1'
+    = f.radio_button :is_employer, '0', :checked => params[:employee] == '1' || (params[:user] and params[:user][:is_employer] == '0')
     = f.label :is_employer, "I want to find a job", :value => '0'
-    = f.radio_button :is_employer, '1', :checked => params[:employer] == '1'
+    = f.radio_button :is_employer, '1', :checked => params[:employer] == '1' || (params[:user] and params[:user][:is_employer] == '1')
     = f.label :is_employer, "I want to post a job", :value => '1'
   .form-group
     = f.submit "Sign Up", class: "btn btn-primary"
