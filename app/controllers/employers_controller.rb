@@ -1,15 +1,10 @@
 class EmployersController < ApplicationController
+  respond_to :html
 
   #->Prelang (scaffolding:rails/scope_to_user)
   before_filter :require_user_signed_in, only: [:new, :edit, :create, :update, :destroy]
 
   before_action :set_employer, only: [:show, :edit, :update, :destroy, :vote]
-
-  # GET /employers
-  # GET /employers.json
-  def index
-    @employers = Employer.all
-  end
 
   # GET /employers/1
   # GET /employers/1.json
@@ -32,43 +27,24 @@ class EmployersController < ApplicationController
     @employer = Employer.new(employer_params)
     @employer.user = current_user
 
-    respond_to do |format|
-      if @employer.save
-        @employer.user.profile_created = true
-        @employer.user.save
-        format.html { redirect_to @employer, notice: 'Employer was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @employer }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @employer.errors, status: :unprocessable_entity }
-      end
+    if @employer.save
+      @employer.user.profile_created = true
+      @employer.user.save
+      redirect_to @employer, notice: 'Employer was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /employers/1
   # PATCH/PUT /employers/1.json
   def update
-    respond_to do |format|
-      if @employer.update(employer_params)
-        format.html { redirect_to @employer, notice: 'Employer was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @employer.errors, status: :unprocessable_entity }
-      end
+    if @employer.update(employer_params)
+      redirect_to @employer, notice: 'Employer was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
-
-  # DELETE /employers/1
-  # DELETE /employers/1.json
-  def destroy
-    @employer.destroy
-    respond_to do |format|
-      format.html { redirect_to employers_url }
-      format.json { head :no_content }
-    end
-  end
-
 
   #->Prelang (voting/acts_as_votable)
   def vote

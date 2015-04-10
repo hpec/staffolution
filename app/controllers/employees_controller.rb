@@ -5,11 +5,7 @@ class EmployeesController < ApplicationController
 
   before_action :set_employee, only: [:show, :edit, :update, :destroy, :vote]
 
-  # GET /employees
-  # GET /employees.json
-  def index
-    @employees = Employee.all
-  end
+  respond_to :html
 
   # GET /employees/1
   # GET /employees/1.json
@@ -31,41 +27,22 @@ class EmployeesController < ApplicationController
     @employee = Employee.new(employee_params)
     @employee.user = current_user
 
-    respond_to do |format|
-      if @employee.save
-        format.html { redirect_to @employee, notice: 'Employee was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @employee }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
+    if @employee.save
+      redirect_to @employee, notice: 'Employee was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
-    respond_to do |format|
-      if @employee.update(employee_params)
-        format.html { redirect_to @employee, notice: 'Employee was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @employee.errors, status: :unprocessable_entity }
-      end
+    if @employee.update(employee_params)
+      redirect_to @employee, notice: 'Employee was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
-
-  # DELETE /employees/1
-  # DELETE /employees/1.json
-  def destroy
-    @employee.destroy
-    respond_to do |format|
-      format.html { redirect_to employees_url }
-      format.json { head :no_content }
-    end
-  end
-
 
   #->Prelang (voting/acts_as_votable)
   def vote
