@@ -25,30 +25,12 @@
         .col-xs-11
           = f.text_field :website
 
-  %fieldset
-    %legend.fieldset-title Address
-    .form-group
-      = f.label :address_line_1
-      = f.text_field :address_line_1
-    .form-group
-      = f.label :address_line_2
-      = f.text_field :address_line_2
-    .form-group
-      .row
-        .col-xs-4
-          = f.label :city
-          = f.text_field :city
-        .col-xs-4
-          = f.label :state
-          = f.text_field :state
-        .col-xs-3.pull-right
-
-          = f.label :zipcode
-          = f.text_field :zipcode
-
     .form-group
       = f.label :office_type
       = f.text_area :office_type
+
+
+  = render partial: "addresses/address_fields", locals: {f: f}
 
   .form-group
     = f.submit nil, :class => 'btn btn-primary'

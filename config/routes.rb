@@ -1,8 +1,8 @@
 Staffolution::Application.routes.draw do
+  resources :jobs
+
   get "landings/index"
   root 'landings#index'
-
-  resources :jobs
 
   resources :employers do
   #->Prelang (voting/acts_as_votable)
