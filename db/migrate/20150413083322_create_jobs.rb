@@ -1,5 +1,6 @@
 class CreateJobs < ActiveRecord::Migration
   def change
+    drop_table :jobs, if_exists: true
     create_table :jobs do |t|
       t.string :name
       t.text :description

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327080045) do
+ActiveRecord::Schema.define(version: 20150413083322) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -132,25 +132,23 @@ ActiveRecord::Schema.define(version: 20150327080045) do
   add_index "employers", ["user_id"], name: "index_employers_on_user_id"
 
   create_table "jobs", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "employee_id"
-    t.string   "job_position"
-    t.text     "job_description"
-    t.date     "job_start_date"
-    t.date     "job_end_date"
-    t.float    "job_compensation"
-    t.time     "job_start_time"
-    t.time     "job_end_time"
-    t.boolean  "job_filled"
-    t.string   "job_title"
+    t.string   "name"
+    t.text     "description"
     t.integer  "employer_id"
+    t.integer  "employee_id"
+    t.string   "address_line_1"
+    t.string   "address_line_2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
+    t.string   "compensation"
+    t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "jobs", ["employee_id"], name: "index_jobs_on_employee_id"
   add_index "jobs", ["employer_id"], name: "index_jobs_on_employer_id"
-  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
   create_table "reps", force: true do |t|
     t.string   "rep_name"
