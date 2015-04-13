@@ -1,6 +1,10 @@
 class CreateJobs < ActiveRecord::Migration
   def change
-    drop_table :jobs, if_exists: true
+    begin
+      drop_table :jobs, if_exists: true
+    rescue
+      p "jobs table does not exsit, skip"
+    end
     create_table :jobs do |t|
       t.string :name
       t.text :description
