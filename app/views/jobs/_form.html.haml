@@ -6,38 +6,22 @@
         - @job.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  %fieldset
+    %legend.fieldset-title Basics
+
     = f.label :name
     = f.text_field :name
-  .field
+
     = f.label :description
     = f.text_area :description
-  .field
-    = f.label :employer
-    = f.text_field :employer
-  .field
-    = f.label :employee
-    = f.text_field :employee
-  .field
-    = f.label :address_line_1
-    = f.text_field :address_line_1
-  .field
-    = f.label :address_line_2
-    = f.text_field :address_line_2
-  .field
-    = f.label :city
-    = f.text_field :city
-  .field
-    = f.label :state
-    = f.text_field :state
-  .field
-    = f.label :zipcode
-    = f.text_field :zipcode
-  .field
+
     = f.label :compensation
     = f.text_field :compensation
-  .field
+
     = f.label :position
     = f.text_field :position
+
+  = render partial: "addresses/address_fields", locals: {f: f}
+
   .actions
-    = f.submit 'Save'
+    = f.submit 'Post', :class => 'btn btn-primary'
