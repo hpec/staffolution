@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
   }
 
   validates :username, presence: true, uniqueness: true
-  validates :is_employer, presence: { message: "Please select your account purpose" }
+  validates_inclusion_of :is_employer, :in => [true, false], :message => "Please select your account purpose"
 
   include Rails.application.routes.url_helpers
 
