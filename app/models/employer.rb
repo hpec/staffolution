@@ -39,7 +39,7 @@ class Employer < ActiveRecord::Base
   protected
 
   def smart_add_url_protocol
-    unless self.website.empty? || self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
+    unless !self.website || self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
       self.website = "http://#{self.website}"
     end
   end

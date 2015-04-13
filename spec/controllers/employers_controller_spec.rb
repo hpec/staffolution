@@ -30,7 +30,7 @@ RSpec.describe EmployersController, :type => :controller do
     end
     it 'should not be successful' do
       employer = FactoryGirl.create(:employer)
-      expect { get :vote, :id=>1,:direction=>"what" 
+      expect { get :vote, :id=>1,:direction=>"what"
         }.to raise_error
     end
   end
@@ -55,17 +55,6 @@ RSpec.describe EmployersController, :type => :controller do
 #   # in order to pass any filters (e.g. authentication) defined in
 #   # EmployersController. Be sure to keep this updated too.
 #   let(:valid_session) { {} }
-
-  describe "GET index" do
-    before(:each) do
-      sign_in FactoryGirl.create(:user)
-    end
-    it "assigns all employers as @employers" do
-      employer = FactoryGirl.create(:employer)
-      get :index, {}
-      expect(assigns(:employers)).to eq([employer])
-    end
-  end
 
 #   describe "GET show" do
 #     it "assigns the requested employer as @employer" do
@@ -167,23 +156,6 @@ RSpec.describe EmployersController, :type => :controller do
         put :update, {:id => 1, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}}
         expect(response).to render_template("edit")
       end
-    end
-  end
-
-  describe "DELETE destroy" do
-    before(:each) do
-      sign_in FactoryGirl.create(:user)
-    end
-    it "redirects to the employers list" do
-      employer = FactoryGirl.create(:employer)
-      delete :destroy, {:id => 1}
-      expect(response).to redirect_to(employers_url)
-    end
-    it "destroys the requested employer" do
-      employer = FactoryGirl.create(:employer)
-      expect {
-        delete :destroy, {:id => 1}
-      }.to change(Employer, :count).by(-1)
     end
   end
 

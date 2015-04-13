@@ -58,9 +58,9 @@ RSpec.describe User, :type => :model do
 			expect(@user.is_employer).to match true
 		end
 		it "#should raise" do
-			@user1=User.new(email: 'user1@example.com', username: 'user2' ,password:'12345678')
+			@user1=User.new(email: 'user1@example.com', username: 'user2' ,password:'12345678', is_employer: false)
 			@user1.save!
-			@user2=User.create(email: 'user1@example.com', username: 'user3', password:'12345678')
+			@user2=User.create(email: 'user1@example.com', username: 'user3', password:'12345678', is_employer: false)
 			expect{@user2.save!}.to raise_error()
 		end
 	end
@@ -71,6 +71,6 @@ RSpec.describe User, :type => :model do
 		it { should respond_to(:is_employer) }
 		it "#is_employer returns a boolean" do
 			expect(@user.is_employer).to match false
-		end		
+		end
 	end
 end

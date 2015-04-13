@@ -37,6 +37,7 @@ FactoryGirl.define do
     email 'example@example.com'
     password '12345678'
     id 1
+    is_employer false
   end
 end
 

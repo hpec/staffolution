@@ -12,7 +12,7 @@ module NavigationHelpers
     # Here is an example that pulls values out of the Regexp:
     #
     #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))     
+    #     user_profile_path(User.find_by_login($1))
 
     when /^the home page$/ then '/'
     when /^the login page$/ then '/login'
@@ -20,6 +20,7 @@ module NavigationHelpers
     when /^the employer signup page$/ then '/signup?employer=1'
     when /^the worker profile creation page$/ then '/employees/new'
     when /^the employer profile creation page$/ then '/employers/new'
+    when /^the worker home page$/ then pending
 
     else
       begin

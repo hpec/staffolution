@@ -46,18 +46,8 @@ RSpec.describe EmployeesController, :type => :controller do
     end
     it 'should not be successful' do
       employee = FactoryGirl.create(:employee)
-      expect { get :vote, :id=>1,:direction=>"what" 
+      expect { get :vote, :id=>1,:direction=>"what"
         }.to raise_error
-    end
-  end
-  describe "GET index" do
-    before(:each) do
-      sign_in FactoryGirl.create(:user)
-    end
-    it "assigns all employees as @employees" do
-      employee = FactoryGirl.create(:employee)
-      get :index, {}
-      expect(assigns(:employees)).to eq([employee])
     end
   end
 
@@ -165,24 +155,6 @@ RSpec.describe EmployeesController, :type => :controller do
         put :update, {:id => 1, :employee => {:employee_email=> 'user', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
         expect(response).to render_template("edit")
       end
-    end
-  end
-
-  describe "DELETE destroy" do
-    before(:each) do
-      sign_in FactoryGirl.create(:user)
-    end
-    it "destroys the requested employee" do
-      employee = FactoryGirl.create(:employee)
-      expect {
-        delete :destroy, {:id => employee.to_param}
-      }.to change(Employee, :count).by(-1)
-    end
-
-    it "redirects to the employees list" do
-      employee = FactoryGirl.create(:employee)
-      delete :destroy, {:id => employee.to_param}
-      expect(response).to redirect_to(employees_url)
     end
   end
 
