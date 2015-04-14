@@ -69,7 +69,7 @@ When(/^I create test employer 1$/) do
   fill_in('employer_email', :with=> 'joerepair@b.com')
   fill_in('employer_address_line_1', :with=> '123 Road St')
   fill_in('employer_city', :with=> 'Berkeley')
-  fill_in('employer_state', :with=> 'CA')
+  select('California', :from => 'employer_state')
   fill_in('employer_zipcode', :with=> '94720')
   fill_in('employer_office_type', :with=> 'repair')
   click_button("Create Employer")
