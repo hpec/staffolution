@@ -21,7 +21,8 @@ require 'rails_helper'
 RSpec.describe EmployersController, :type => :controller do
   describe 'vote' do
     before(:each) do
-      sign_in FactoryGirl.create(:user)
+      user = User.new(email: 'user@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
+      sign_in user
     end
     it 'should be successful' do
       employer = FactoryGirl.create(:employer)
