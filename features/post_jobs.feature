@@ -6,14 +6,20 @@ Feature: post a job
 
 Background: the employer's profile already exists
 
-	Given that the following Employers exists:
+	Given that the following Users exist:
 
-	|ID|name				  |type			 |location|
-	|1 |Dr. Paul Smiles Office|Dentist Office|Berkeley|
+	|ID|Username|Authentication|Type|Email	|
+	|1 |joeshmoe|12345678      |E   |a@b.com|
 
 Scenario: post a job
-	When I am on the employer home page
-	And I follow "Post a Job"
-	And I fill in a test job description
-	Then I should be on the job page
-	And I should see the job details
+	When I am on the login page
+	And I fill user_login with 'joeshmoe'
+	And I fill user_password with '12345678'
+	And I press "Login"
+	And I create test employer 1
+	And I follow "Staffolution"
+	And I follow "View jobs"
+	And I follow "New Job"
+	And I create test job 1
+	Then I should see "successfully created"
+	And I should view test job 1

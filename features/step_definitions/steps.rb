@@ -37,6 +37,12 @@ When(/^I fill (.*) with '(.*)'$/) do |field, value|
   fill_in(field, :with => value)
 end
 
+Then(/^I update compensation to "(.*?)"$/) do |arg1|
+  fill_in('job_compensation', :with=> arg1)
+end
+
+
+
 When(/^I press "(.*?)"$/) do |button|
   click_button(button)
 end
@@ -76,6 +82,14 @@ When(/^I create test employer 1$/) do
   assert page.body.include? "successfully created"
 end
 
+When(/^I create test job 1$/) do
+  fill_in('job_name', :with=> "Joe's repair")
+  fill_in('job_description', :with=> 'fix stuff')
+  fill_in('job_compensation', :with=> '$800/hr')
+  fill_in('job_position', :with=> 'Repairman')
+  click_button("Post")
+  assert page.body.include? "successfully created"
+end
 
 Then(/^I should see "(.*?)"$/) do |content|
   # puts page.body
@@ -110,6 +124,13 @@ Then(/^I should view test employer 1$/) do
   assert page.body.include? 'CA'
   assert page.body.include? '94720'
   assert page.body.include? 'repair'
+end
+
+Then(/^I should view test job 1$/) do
+  assert page.body.include? "Joe's repair"
+  assert page.body.include? 'fix stuff'
+  assert page.body.include? '$800/hr'
+  assert page.body.include? 'Repairman'
 end
 
 Then(/^Print page$/) do

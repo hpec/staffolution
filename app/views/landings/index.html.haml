@@ -2,10 +2,12 @@
   -if current_user.is_employer
     %h1 Welcome to the Employer Home Page!
     = current_user.username
+    = link_to "View jobs", jobs_path
     %p .........
   -else
     %h1 Welcome to the Worker Home Page!
     = current_user.username
+    = link_to "View jobs", jobs_path
 
   - unless current_user.profile_created
     = link_to "Complete your profile", current_user.profile_creation_path
