@@ -52,12 +52,22 @@ RSpec.describe JobsController, type: :controller do
   #   end
   # end
 
-  # describe "GET #new" do
-  #   it "assigns a new job as @job" do
-  #     get :new, {}, valid_session
-  #     expect(assigns(:job)).to be_a_new(Job)
-  #   end
-  # end
+  describe "GET #new" do
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+      sign_in @user
+    end
+    it "redirects if not employer" do
+      get :new, {}
+      expect(response).to redirect_to(root_path)
+    end
+    it "assigns a new job as @job" do
+      employer=FactoryGirl.create(:employer)
+      @user.employer = employer
+      get :new, {}
+      expect(assigns(:job)).to be_a_new(Job)
+    end
+  end
 
   # describe "GET #edit" do
   #   it "assigns the requested job as @job" do
