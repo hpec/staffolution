@@ -22,7 +22,18 @@ feature 'Sign in', :devise do
   #   When I sign in with valid credentials
   #   Then I see a success message
   scenario 'user can sign in with valid email' do
-    user = FactoryGirl.create(:user)
+    user = User.create(email: 'example@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
+    visit new_user_session_path
+    fill_in 'Username or Email', with: 'example@example.com'
+    fill_in 'Password', with: '12345678'
+    click_button 'Login'
+    expect(page).to have_content I18n.t 'devise.sessions.signed_in'
+  end
+
+  scenario 'employer can sign in with valid email' do
+    user = User.create(email: 'example@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
+    employer = FactoryGirl.create(:employer)
+    user.employer=employer
     visit new_user_session_path
     fill_in 'Username or Email', with: 'example@example.com'
     fill_in 'Password', with: '12345678'
