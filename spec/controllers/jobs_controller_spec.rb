@@ -54,7 +54,7 @@ RSpec.describe JobsController, type: :controller do
 
   describe "GET #new" do
     before(:each) do
-      @user = FactoryGirl.create(:user)
+      @user = User.create(email: 'example@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
       sign_in @user
     end
     it "redirects if not employer" do
