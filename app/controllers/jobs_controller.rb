@@ -19,11 +19,13 @@ class JobsController < InheritedResources::Base
     end
 
     def set_employer
-      if current_user.employer.nil?
-        flash[:error] = "You have to create your employer profile first!"
-        redirect_to root_path
+      if current_user.is_employer?
+        if current_user.employer.nil?
+          flash[:error] = "You have to create your employer profile first!"
+          redirect_to root_path
+        end
+        @employer = current_user.employer
       end
-      @employer = current_user.employer
     end
 end
 
