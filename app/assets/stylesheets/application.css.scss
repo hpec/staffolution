@@ -59,3 +59,16 @@ legend.fieldset-title {
   padding-right: 0;
   padding-left: 0;
 }
+
+.linkedin-icon {
+  height: 30px;
+}
+
+.import-linkedin {
+  font-size: 16px;
+  font-weight: 500;
+  &:hover {
+    text-decoration: none;
+  }
+  color: rgb(18, 123, 179);
+}

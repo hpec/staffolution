@@ -1,4 +1,6 @@
 = form_for @employee, builder: RequiredFormBuilder do |f|
+  = render partial: "elements/import_linkedin"
+
   - if @employee.errors.any?
     #error_explanation
       .alert.alert-danger

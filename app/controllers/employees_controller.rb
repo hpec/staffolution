@@ -15,6 +15,13 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
+    if current_user.linkedin_profiles.count > 0
+      linkedin_profile = current_user.linkedin_profiles.last
+      @employee.employee_first_name = linkedin_profile.first_name
+      @employee.employee_last_name = linkedin_profile.last_name
+      @employee.employee_phone = linkedin_profile.phone
+      @employee.employee_email = current_user.email
+    end
   end
 
   # GET /employees/1/edit

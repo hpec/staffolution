@@ -23,7 +23,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       flash[:error] = 'Failed to connect to your LinkedIn account'
     end
-    redirect_to root_url
+    redirect_to current_user.profile_creation_path
   end
 
   # def sign_in_via_linkedin

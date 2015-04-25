@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
   # end
 
   def connect_to_linkedin(auth)
-    self.linkedin_profiles.build(
+    self.linkedin_profiles.create(
       uid: auth.uid,
       token: auth.credentials.token,
       secret: auth.credentials.secret,

@@ -12,9 +12,6 @@
     %p
       = link_to "View jobs", jobs_path
 
-  %p
-    = link_to "Connect to LinkedIn", user_omniauth_authorize_path(:linkedin)
-
   - unless current_user.profile_created
     %p
       = link_to "Complete your profile", current_user.profile_creation_path
