@@ -82,12 +82,12 @@ class User < ActiveRecord::Base
     # The User was found in our database
     unless user
       # The User was not found and we need to create them
-      user = User.create(# name:     auth.extra.raw_info.name,
-                         # provider: auth.provider,
-                         # uid:      auth.uid,
-                         email:    auth.info.email,
-                         username: auth.info.email,
-                         password: Devise.friendly_token[0,20])
+      user = User.create!(# name:     auth.extra.raw_info.name,
+                          # provider: auth.provider,
+                          # uid:      auth.uid,
+                          email:    auth.info.email,
+                          username: auth.info.email,
+                          password: Devise.friendly_token[0,20])
     end
     user
   end
