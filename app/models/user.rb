@@ -39,6 +39,7 @@ class User < ActiveRecord::Base
   has_one :employer
   has_one :employee
   has_many :reviews
+  has_many :linkedin_profiles
 
   HUMANIZED_ATTRIBUTES = {
     :is_employer => ""
@@ -77,21 +78,36 @@ class User < ActiveRecord::Base
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
     # pp auth
 
-    user = User.where(:email => auth.info.email).first
+    user = User.where(:email => auth.info.email, :provider => auth.provider).first
 
     # The User was found in our database
     unless user
       # The User was not found and we need to create them
-      user = User.create!(# name:     auth.extra.raw_info.name,
-                          # provider: auth.provider,
-                          # uid:      auth.uid,
-                          email:    auth.info.email,
-                          username: auth.info.email,
-                          password: Devise.friendly_token[0,20])
+      user = User.create(# name:     auth.extra.raw_info.name,
+                         # provider: auth.provider,
+                         # uid:      auth.uid,
+                         email:    auth.info.email,
+                         username: auth.info.email,
+                         password: Devise.friendly_token[0,20])
     end
     user
   end
 
+  def connect_to_linkedin(auth)
+    self.linkedin_profiles.build(
+      uid: auth.uid,
+      token: auth.credentials.token,
+      secret: auth.credentials.secret,
+      first_name: auth.info.first_name,
+      last_name: auth.info.last_name,
+      phone: auth.info.phone,
+      location: auth.info.location,
+      profile_url: auth.info.urls.public_profile,
+      industry: auth.info.industry,
+      avatar: auth.info.image)
+    self.provider = auth.provider
+    self.save!
+  end
 
   attr_accessor :login
 
