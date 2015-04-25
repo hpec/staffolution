@@ -74,24 +74,22 @@ class User < ActiveRecord::Base
     end
   end
 
+  # disabled linkedin authentication
+  # def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
+  #   user = User.where(:email => auth.info.email, :provider => "linkedin").first
 
-  def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
-    # pp auth
-
-    user = User.where(:email => auth.info.email, :provider => auth.provider).first
-
-    # The User was found in our database
-    unless user
-      # The User was not found and we need to create them
-      user = User.create(# name:     auth.extra.raw_info.name,
-                         # provider: auth.provider,
-                         # uid:      auth.uid,
-                         email:    auth.info.email,
-                         username: auth.info.email,
-                         password: Devise.friendly_token[0,20])
-    end
-    user
-  end
+  #   # The User was found in our database
+  #   unless user
+  #     # The User was not found and we need to create them
+  #     user = User.create(# name:     auth.extra.raw_info.name,
+  #                        # provider: auth.provider,
+  #                        # uid:      auth.uid,
+  #                        email:    auth.info.email,
+  #                        username: auth.info.email,
+  #                        password: Devise.friendly_token[0,20])
+  #   end
+  #   user
+  # end
 
   def connect_to_linkedin(auth)
     self.linkedin_profiles.build(
@@ -105,8 +103,8 @@ class User < ActiveRecord::Base
       profile_url: auth.info.urls.public_profile,
       industry: auth.info.industry,
       avatar: auth.info.image)
-    self.provider = auth.provider
-    self.save!
+    # self.provider = auth.provider
+    # self.save!
   end
 
   attr_accessor :login

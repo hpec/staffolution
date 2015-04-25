@@ -5,7 +5,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if current_user
       connect_to_linkedin
     else
-      sign_in_via_linkedin
+      # disabled sign in via linkedin
+      flash[:error] = 'You need to log in first'
+      redirect_to new_user_session_url
     end
   end
 
@@ -24,18 +26,18 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     redirect_to root_url
   end
 
-  def sign_in_via_linkedin
-    @user = User.find_for_linkedin_oauth(request.env["omniauth.auth"], current_user)
+  # def sign_in_via_linkedin
+  #   @user = User.find_for_linkedin_oauth(request.env["omniauth.auth"], current_user)
 
-    if @user.persisted?
-      @user.connect_to_linkedin(request.env["omniauth.auth"])
-      sign_in_and_redirect @user, :event => :authentication # This will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => "LinkedIn") if is_navigational_format?
-    else
-      flash[:error] = 'Could not connect to your linkedin account, if you already have an account with us you need to sign in first'
-      session["devise.linkedin_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to new_user_session_url
-    end
-  end
+  #   if @user.persisted?
+  #     @user.connect_to_linkedin(request.env["omniauth.auth"])
+  #     sign_in_and_redirect @user, :event => :authentication # This will throw if @user is not activated
+  #     set_flash_message(:notice, :success, :kind => "LinkedIn") if is_navigational_format?
+  #   else
+  #     flash[:error] = 'Could not connect to your LinkedIn account, if you already have an account with us you need to sign in first'
+  #     session["devise.linkedin_data"] = request.env["omniauth.auth"].except("extra")
+  #     redirect_to new_user_session_url
+  #   end
+  # end
 
 end
