@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
 
 
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
-    pp auth
+    # pp auth
 
     user = User.where(provider: auth.provider, uid: auth.uid).first
 
