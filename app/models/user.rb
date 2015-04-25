@@ -34,17 +34,18 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
         :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, omniauth_providers: [:facebook]
+  devise :omniauthable, omniauth_providers: [:linkedin]
 
   has_one :employer
   has_one :employee
+  has_many :reviews
 
   HUMANIZED_ATTRIBUTES = {
     :is_employer => ""
   }
 
   validates :username, presence: true, uniqueness: true
-  validates_inclusion_of :is_employer, :in => [true, false], :message => "Please select your account purpose"
+  # validates_inclusion_of :is_employer, :in => [true, false], :message => "Please select your account purpose"
 
   include Rails.application.routes.url_helpers
 
@@ -72,21 +73,24 @@ class User < ActiveRecord::Base
     end
   end
 
-  #->Prelang (user_login/devise)
-  has_many :reviews
-  # def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-  #   user = User.where(provider: auth.provider, uid: auth.uid).first
 
-  #   # The User was found in our database
-  #   return user if user
+  def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
+    pp auth
 
-  #   # The User was not found and we need to create them
-  #   User.create(name:     auth.extra.raw_info.name,
-  #               provider: auth.provider,
-  #               uid:      auth.uid,
-  #               email:    auth.info.email,
-  #               password: Devise.friendly_token[0,20])
-  # end
+    user = User.where(provider: auth.provider, uid: auth.uid).first
+
+    # The User was found in our database
+    unless user
+      # The User was not found and we need to create them
+      user = User.create(# name:     auth.extra.raw_info.name,
+                         # provider: auth.provider,
+                         # uid:      auth.uid,
+                         email:    auth.info.email,
+                         username: auth.info.email,
+                         password: Devise.friendly_token[0,20])
+    end
+    user
+  end
 
 
   attr_accessor :login
