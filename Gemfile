@@ -56,3 +56,4 @@ gem 'validates_formatting_of'
 gem 'annotate'
 gem 'foundation-rails'
 gem 'money-rails'
+gem "font-awesome-rails"

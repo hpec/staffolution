@@ -1,3 +1,7 @@
-= link_to user_omniauth_authorize_path(:linkedin), :class => "import-linkedin" do
-  = image_tag "linkedin.png", :class => "linkedin-icon"
-  Import your LinkedIn profile
+- if current_user.connected_to_linkedin?
+  %i.fa.fa-check
+  Your LinkedIn profile has already been imported
+- else
+  = link_to user_omniauth_authorize_path(:linkedin), :class => "import-linkedin" do
+    = image_tag "linkedin.png", :class => "linkedin-icon"
+    Import your LinkedIn profile

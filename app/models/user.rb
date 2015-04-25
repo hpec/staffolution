@@ -107,6 +107,10 @@ class User < ActiveRecord::Base
     # self.save!
   end
 
+  def connected_to_linkedin?
+    linkedin_profiles.count > 0
+  end
+
   attr_accessor :login
 
   #->Prelang (user_login:devise/username_login_support)

@@ -15,7 +15,7 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
-    if current_user.linkedin_profiles.count > 0
+    if current_user.connected_to_linkedin?
       linkedin_profile = current_user.linkedin_profiles.last
       @employee.employee_first_name = linkedin_profile.first_name
       @employee.employee_last_name = linkedin_profile.last_name
