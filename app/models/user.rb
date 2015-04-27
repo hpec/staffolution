@@ -58,6 +58,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_edit_path
+    if is_employer
+      edit_employer_path(self.employer)
+    else
+      edit_employee_path(self.employee)
+    end
+  end
+
   def profile_path
     if is_employer
       if self.employer

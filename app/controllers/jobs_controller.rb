@@ -5,6 +5,7 @@ class JobsController < InheritedResources::Base
 
   def new
     @job = Job.new
+    @employer_id = @employer.id
     @job.address_line_1 = @employer.address_line_1
     @job.address_line_2 = @employer.address_line_2
     @job.city = @employer.city
@@ -15,7 +16,7 @@ class JobsController < InheritedResources::Base
   private
 
     def job_params
-      params.require(:job).permit(:name, :description, :address_line_1, :address_line_2, :city, :state, :zipcode, :compensation, :position)
+      params.require(:job).permit(:name, :description, :address_line_1, :address_line_2, :city, :state, :zipcode, :compensation, :position, :employer_id)
     end
 
     def set_employer
