@@ -4,6 +4,8 @@ Staffolution::Application.routes.draw do
   get "landings/index"
   root 'landings#index'
 
+  get "dashboard" => "users/dashboard#show", as: :dashboard
+
   resources :employers do
   #->Prelang (voting/acts_as_votable)
     member do

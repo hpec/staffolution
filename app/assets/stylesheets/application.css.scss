@@ -12,6 +12,8 @@
 *= require_self
 *= require_tree .
 *= stub active_admin
+*= require creative
+*= require animate.min
 
 */
 
@@ -72,4 +74,8 @@ legend.fieldset-title {
     text-decoration: none;
   }
   color: rgb(18, 123, 179);
+}
+
+.page-header {
+  margin: 20px 0 20px;
 }

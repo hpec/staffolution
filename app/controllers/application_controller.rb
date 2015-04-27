@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
 
   private
-  
+
   #-> Prelang (user_login:devise)
   def require_user_signed_in
     unless user_signed_in?
@@ -36,10 +36,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    if not resource.profile_created
+    if not resource.profile_created?
       resource.profile_creation_path
     else
-      request.env['omniauth.origin'] || stored_location_for(resource) || root_path
+      request.env['omniauth.origin'] || stored_location_for(resource) || dashboard_path
     end
   end
 

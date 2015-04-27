@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.easing.min
+//= require jquery.fittext
+//= require wow.min
 //= require turbolinks
-//= require bootstrap
-//= require foundation
+//= require bootstrap.min
 
-//= require_tree .
-
-$(document).foundation();
+// $(document).foundation();

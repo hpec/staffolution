@@ -1,0 +1,26 @@
+- if user_signed_in?
+  -if current_user.is_employer
+    %h1 Welcome to the Employer Home Page!
+    %p
+      = current_user.username
+    %p
+      = link_to "View jobs", jobs_path
+  -else
+    %h1 Welcome to the Worker Home Page!
+    %p
+      = current_user.username
+    %p
+      = link_to "View jobs", jobs_path
+
+  - unless current_user.profile_created?
+    %p
+      = link_to "Complete your profile", current_user.profile_creation_path
+
+-else
+  .center-block.text-center
+    %h1 Tell us what you want ...
+  .row.action-block
+    .col-xs-3.col-xs-offset-3
+      = link_to "Find a job", new_user_registration_path(:employee => 1), :class => "btn btn-primary btn-lg custom-btn-huge"
+    .col-xs-3
+      = link_to "Post a job", new_user_registration_path(:employer => 1), :class => "btn btn-success btn-lg custom-btn-huge"

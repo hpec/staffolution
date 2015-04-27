@@ -74,6 +74,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def profile_created?
+    employer.nil? or employee.nil?
+  end
+
   # disabled linkedin authentication
   # def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
   #   user = User.where(:email => auth.info.email, :provider => "linkedin").first

@@ -4,14 +4,18 @@
     %title Staffolution
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "vendor/modernizr"
-    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = javascript_include_tag "application", controller_name, "data-turbolinks-track" => true
     = csrf_meta_tags
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
     / Prelang: Analytics / Google Analytics
     = analytics_init if Rails.env.production?
   %body
-
-    .container
-      = render partial: "elements/navbar"
-      = bootstrap_flash
+    - if current_page?(root_path)
       = yield
+    - else
+      = render partial: "elements/navbar"
+      .container
+
+        = bootstrap_flash
+        = yield
+
