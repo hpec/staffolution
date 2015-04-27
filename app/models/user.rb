@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   end
 
   def profile_created?
-    employer.nil? or employee.nil?
+    (is_employer and !employer.nil?) or (!is_employer and !employee.nil?)
   end
 
   # disabled linkedin authentication
