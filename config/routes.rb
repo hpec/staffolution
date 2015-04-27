@@ -3,6 +3,7 @@ Staffolution::Application.routes.draw do
 
   get "landings/index"
   root 'landings#index'
+  get "get-started" => "landings#get_started", as: :get_started
 
   scope :user do
     get "dashboard" => "user#dashboard", as: :dashboard

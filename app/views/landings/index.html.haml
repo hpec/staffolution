@@ -16,10 +16,14 @@
             %a.page-scroll{:href => "#about"} About
           %li
             %a.page-scroll{:href => "#services"} How it works
-          %li
-            %a.page-scroll{:href => "/signup"} Sign up
-          %li
-            %a.page-scroll{:href => "/login"} Login
+          - if user_signed_in?
+            %li
+              %a.page-scroll{:href => "/user/dashboard"} Dashboard
+          - else
+            %li
+              %a.page-scroll{:href => "/signup"} Sign up
+            %li
+              %a.page-scroll{:href => "/login"} Login
       / /.navbar-collapse
     / /.container-fluid
   %header
@@ -37,7 +41,7 @@
           %h2.section-heading We've got what you need!
           %hr.light
             %p.text-faded Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!
-            %a.btn.btn-default.btn-xl{:href => "#"} Get Started!
+            %a.btn.btn-default.btn-xl{:href => "/get-started"} Get Started!
   %section#services
     .container
       .row

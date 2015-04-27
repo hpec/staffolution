@@ -1,0 +1,7 @@
+.center-block.text-center
+  %h1 I want to ...
+.row.action-block
+  .col-xs-3.col-xs-offset-3
+    = link_to "Find a job", new_user_registration_path(:employee => 1), :class => "btn btn-primary btn-lg custom-btn-huge"
+  .col-xs-3
+    = link_to "Post a job", new_user_registration_path(:employer => 1), :class => "btn btn-success btn-lg custom-btn-huge"
