@@ -16,7 +16,7 @@
 //= require jquery.fittext
 //= require wow.min
 //= require turbolinks
-//= require bootstrap.min
+//= require bootstrap-sprockets
 
 //= require_tree .
 
