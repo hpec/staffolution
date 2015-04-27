@@ -4,7 +4,10 @@ Staffolution::Application.routes.draw do
   get "landings/index"
   root 'landings#index'
 
-  get "dashboard" => "users/dashboard#show", as: :dashboard
+  scope :user do
+    get "dashboard" => "user#dashboard", as: :dashboard
+    # get "profile" => "user#profile", as: :profile
+  end
 
   resources :employers do
   #->Prelang (voting/acts_as_votable)
