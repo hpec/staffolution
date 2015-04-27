@@ -11,10 +11,20 @@
       = current_user.username
     %p
       = link_to "View jobs", jobs_path
-
-  - unless current_user.profile_created
-    %p
-      = link_to "Complete your profile", current_user.profile_creation_path
+  - if !current_user.is_employer
+    - if current_user.employee!=nil
+      %p
+        = link_to "Update your profile", edit_employee_path(:id => current_user.employee.id)
+    -else
+      %p
+        = link_to "Complete your profile", current_user.profile_creation_path  
+  - else
+    - if current_user.employer!=nil
+      %p
+        = link_to "Update your profile", edit_employer_path(:id => current_user.employer.id)
+    -else
+      %p
+        = link_to "Complete your profile", current_user.profile_creation_path  
 
 -else
   .center-block.text-center

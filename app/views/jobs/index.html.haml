@@ -1,19 +1,13 @@
 %h1 Listing jobs
 
-%table
+%table{:style=>"width: 100%;"}
   %thead
     %tr
       %th Name
-      %th Description
       %th Employer
-      %th Employee
-      %th Address line 1
-      %th Address line 2
       %th City
       %th State
-      %th Zipcode
       %th Compensation
-      %th Position
       %th
       %th
       %th
@@ -22,20 +16,15 @@
     - @jobs.each do |job|
       %tr
         %td= job.name
-        %td= job.description
-        %td= job.employer
-        %td= job.employee
-        %td= job.address_line_1
-        %td= job.address_line_2
+        %td= Employer.find(job.employer_id).name
         %td= job.city
         %td= job.state
-        %td= job.zipcode
         %td= job.compensation
-        %td= job.position
         %td= link_to 'Show', job
-        %td= link_to 'Edit', edit_job_path(job)
-        %td= link_to 'Destroy', job, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        - if current_user.employer== job.employer
+          %td= link_to 'Edit', edit_job_path(job)
+          %td= link_to 'Destroy', job, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Job', new_job_path
+- if current_user.is_employer?
+  = link_to 'New Job', new_job_path
