@@ -81,5 +81,7 @@ Staffolution::Application.configure do
   #->Prelang
   GA.tracker = "UA-51704460-1"
 
+  config.assets.debug = true
+
 end
 
