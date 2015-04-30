@@ -19,6 +19,7 @@ class EmployersController < ApplicationController
 
   # GET /employers/1/edit
   def edit
+    @employer.remove_http_from_website
   end
 
   # POST /employers

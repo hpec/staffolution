@@ -13,7 +13,7 @@
         = f.text_field :city
       .col-xs-4
         = f.label :state
-        = f.select :state, options_for_select(us_states)
+        = f.select :state, options_for_select(us_states, f.object.state)
       .col-xs-3.pull-right
         = f.label :zipcode
         = f.text_field :zipcode

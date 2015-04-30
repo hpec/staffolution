@@ -31,8 +31,7 @@
     %dd
       %pre.prettyprint= @employer.state
     %dt.label.label-default= model_class.human_attribute_name(:office_type)
-    %dd
-      %pre.prettyprint= @employer.office_type
+
 .form-group
   = link_to t('.edit', :default => t("helpers.links.edit")),   |
     edit_employer_path(@employer), :class => 'btn btn-default'                                                                                 |

@@ -12,6 +12,12 @@
       = f.label :name, 'Company Name'
       = f.text_field :name
     .form-group
+      = f.label :industry
+      = f.text_field :industry
+    .form-group
+      = f.label :contact_person
+      = f.text_field :contact_person
+    .form-group
       = f.label :phone
       = f.text_field :phone
     .form-group
@@ -25,12 +31,16 @@
         .col-xs-11
           = f.text_field :website
 
-    .form-group
-      = f.label :office_type
-      = f.text_area :office_type
-
-
   = render partial: "addresses/address_fields", locals: {f: f}
+
+  %fieldset
+    %legend.fieldset-title Other Info
+    .form-group
+      = f.label :hours_of_operation
+      = f.text_area :hours, :rows => 3
+    .form-group
+      = f.label :description
+      = f.text_area :description, :rows => 3
 
   .form-group
     = f.submit nil, :class => 'btn btn-primary'

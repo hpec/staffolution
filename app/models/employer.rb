@@ -8,7 +8,6 @@
 #  phone          :string(255)
 #  website        :string(255)
 #  email          :string(255)
-#  office_type    :string(255)
 #  address_line_1 :string(255)
 #  address_line_2 :string(255)
 #  city           :string(255)
@@ -16,6 +15,10 @@
 #  zipcode        :string(255)
 #  created_at     :datetime
 #  updated_at     :datetime
+#  contact_person :string(255)
+#  industry       :string(255)
+#  hours          :string(255)
+#  description    :string(255)
 #
 # Indexes
 #
@@ -27,7 +30,9 @@ class Employer < ActiveRecord::Base
   has_many :jobs
   has_many :reviews
 
-  validates_presence_of :name, :phone, :address_line_1, :city, :state, :zipcode
+  acts_as_votable
+
+  validates_presence_of :name, :industry, :contact_person, :phone, :address_line_1, :city, :state, :zipcode
 
   validates_formatting_of :zipcode, using: :us_zip, :allow_blank => true
   validates_formatting_of :phone, using: :us_phone, :allow_blank => true
@@ -40,9 +45,11 @@ class Employer < ActiveRecord::Base
 
   def smart_add_url_protocol
     unless !self.website || self.website[/\Ahttp:\/\//] || self.website[/\Ahttps:\/\//]
-      self.website = "http://#{self.website}"
+      self.website = "http://#{self.website}" unless self.website=~/^https?:\/\//
     end
   end
 
-  acts_as_votable
+  def remove_http_from_website
+    self.website.sub!(/https?\:\/\//, '')
+  end
 end
