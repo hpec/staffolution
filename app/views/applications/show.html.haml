@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Employee:
+  = @application.employee
+%p
+  %b Job:
+  = @application.job
+%p
+  %b Accepted:
+  = @application.accepted
+
+= link_to 'Edit', edit_application_path(@application)
+\|
+= link_to 'Back', applications_path
