@@ -8,9 +8,9 @@
         %span.icon-bar
         %span.icon-bar
       - if user_signed_in?
-        %a.navbar-brand.page-scroll{:href => "#"} Staffolution
+        %a.navbar-brand.page-scroll{:href => dashboard_path} Staffolution
       - else
-        %a.navbar-brand.page-scroll{:href => "/"} Staffolution
+        %a.navbar-brand.page-scroll{:href => root_path} Staffolution
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
