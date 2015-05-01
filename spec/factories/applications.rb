@@ -17,9 +17,10 @@
 
 FactoryGirl.define do
   factory :application do
-    employee nil
-job nil
-accepted false
+    job_id 1
+	id 1
+	accepted nil
+	employee_id 3
   end
 
 end
