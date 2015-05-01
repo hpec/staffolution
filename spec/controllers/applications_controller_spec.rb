@@ -78,12 +78,13 @@ RSpec.describe ApplicationsController, type: :controller do
       before(:each) do
         @user = User.create(email: 'example@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
         sign_in @user
-        employer=FactoryGirl.create(:employer)
-        @user.employer = employer
+        employee=FactoryGirl.create(:employee)
+        @user.employee = employee
+        @job = FactoryGirl.create(:job)
       end
       it "creates a new Application" do
         expect {
-          Application.create(id:1)
+          post :create, :id=>1
         }.to change(Application, :count).by(1)
       end
 
@@ -93,10 +94,10 @@ RSpec.describe ApplicationsController, type: :controller do
       #   expect(assigns(:application)).to be_persisted
       # end
 
-  #     it "redirects to the created application" do
-  #       post :create, {:application => valid_attributes}, valid_session
-  #       expect(response).to redirect_to(Application.last)
-  #     end
+      it "redirects to the created application" do
+        post :create, :id=>1
+        expect(response).to redirect_to(Job.find(1))
+      end
     end
 
   #   context "with invalid params" do
