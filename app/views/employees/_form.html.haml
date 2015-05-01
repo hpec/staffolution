@@ -15,48 +15,51 @@
     .row
       .col-xs-6
         = f.label :first_name
-        = f.text_field :employee_first_name
+        = f.text_field :first_name
       .col-xs-6
         = f.label :last_name
-        = f.text_field :employee_last_name
+        = f.text_field :last_name
 
     = f.label :phone
-    = f.text_field :employee_phone
+    = f.text_field :phone
 
     = f.label :email
-    = f.email_field :employee_email
-
-    = f.label :zipcode
-    = f.text_field :employee_zipcode
-
-    = f.check_box :employee_transportation
-    = f.label :able_to_commute?, {:for => "employee_employee_transportation"}
+    = f.email_field :email
 
   %fieldset
     %legend.fieldset-title Professional Info
+    = f.label :degree
+    = f.text_field :degree
+
     = f.label :school
-    = f.text_field :employee_school
+    = f.text_field :school
 
-    .row
-      .col-xs-6
-        = f.label :experience_years
-        = f.number_field :employee_experience_years, in: 1...10
-      .col-xs-6
-        = f.label :experience_months
-        = f.number_field :employee_experience_months, in: 0...12
+    = f.label :years_of_experience
+    = f.number_field :years_of_experience, in: 1...10
 
-    = f.label :license_number
-    = f.text_field :employee_lic_number
+    = f.label :certifications
+    = f.text_field :certifications
 
-    = f.label :qualifications
-    = f.text_field :employee_qualifications
+  %fieldset
+    %legend.fieldset-title Transportation
+    = f.label :zipcode
+    = f.text_field :zipcode
 
-    = f.label :languages
-    = f.text_field :employee_languages
+    = f.label :distance_willing_to_travel
+    = f.text_field :distance_to_travel
+
+    = f.check_box :has_transportation
+    = f.label :has_reliable_tranportation?, {:for => "employee_has_transportation"}
 
   %fieldset
     %legend.fieldset-title Additional Info
-    = f.label :self_introduction
-    = f.text_area :employee_description
+    = f.label :days_available
+    = f.text_field :days_available
+
+    = f.label :minimum_pay_per_hour
+    = f.text_field :pay_per_hour
+
+    = f.label :short_bio
+    = f.text_area :bio, :rows => 5
 
   = f.submit nil, :class => 'btn btn-primary', :id => "Submit"

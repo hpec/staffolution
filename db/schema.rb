@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430202758) do
+ActiveRecord::Schema.define(version: 20150501075807) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -92,34 +92,22 @@ ActiveRecord::Schema.define(version: 20150430202758) do
   add_index "education_classes", ["reps_id"], name: "index_education_classes_on_reps_id"
 
   create_table "employees", force: true do |t|
-    t.string   "employee_email"
-    t.string   "employee_phone"
-    t.string   "employee_zipcode"
-    t.string   "employee_first_name"
-    t.string   "employee_last_name"
-    t.integer  "user_id"
-    t.string   "employee_bages"
-    t.text     "employee_description"
-    t.integer  "employee_experience_years"
-    t.integer  "employee_experience_months"
-    t.string   "employee_lic_number"
-    t.string   "employee_type"
-    t.float    "employee_rating"
-    t.boolean  "employee_punctuality"
-    t.boolean  "employee_dependability"
-    t.boolean  "employee_reliable_transportation"
-    t.boolean  "employee_accurate_calendar"
-    t.boolean  "employee_transportation"
-    t.string   "employee_school"
-    t.string   "employee_languages"
-    t.string   "employee_qualifications"
-    t.string   "employee_credentials"
-    t.string   "employee_experience"
-    t.boolean  "employee_phone_verified"
-    t.boolean  "employee_email_verified"
-    t.boolean  "employee_lic_verified"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "phone"
+    t.string  "email"
+    t.string  "industry"
+    t.string  "degree"
+    t.string  "certifications"
+    t.string  "years_of_experience"
+    t.string  "pay_per_hour"
+    t.string  "bio"
+    t.string  "zipcode"
+    t.string  "days_available"
+    t.string  "distance_to_travel"
+    t.boolean "has_transportation"
+    t.integer "user_id"
+    t.string  "school"
   end
 
   add_index "employees", ["user_id"], name: "index_employees_on_user_id"

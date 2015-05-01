@@ -15,12 +15,13 @@ class EmployeesController < ApplicationController
   # GET /employees/new
   def new
     @employee = Employee.new
+    @employee.email = current_user.email
     if current_user.connected_to_linkedin?
       linkedin_profile = current_user.linkedin_profiles.last
-      @employee.employee_first_name = linkedin_profile.first_name
-      @employee.employee_last_name = linkedin_profile.last_name
-      @employee.employee_phone = linkedin_profile.phone
-      @employee.employee_email = current_user.email
+      @employee.first_name = linkedin_profile.first_name
+      @employee.last_name = linkedin_profile.last_name
+      @employee.phone = linkedin_profile.phone
+      @employee.industry = linkedin_profile.industry
     end
   end
 
@@ -79,22 +80,20 @@ class EmployeesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_params
       params.require(:employee).permit(
-        :employee_email,
-        :employee_phone,
-        :employee_zipcode,
-        :employee_first_name,
-        :employee_last_name,
-        :employee_bages,
-        :employee_description,
-        :employee_experience_years,
-        :employee_experience_months,
-        :employee_lic_number,
-        :employee_type,
-        :employee_transportation,
-        :employee_school,
-        :employee_languages,
-        :employee_qualifications,
-        :employee_credentials,
-        :employee_experience)
+        :email,
+        :phone,
+        :zipcode,
+        :first_name,
+        :last_name,
+        :certifications,
+        :distance_to_travel,
+        :days_available,
+        :has_transportation,
+        :industry,
+        :school,
+        :degree,
+        :years_of_experience,
+        :pay_per_hour,
+        :bio)
     end
 end
