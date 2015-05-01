@@ -1,15 +1,18 @@
 Staffolution::Application.routes.draw do
   resources :applications
-
   resources :jobs
 
   get "landings/index"
   root 'landings#index'
   get "get-started" => "landings#get_started", as: :get_started
+  post "applications/:id" => "applications#create", as: :make_app
+  patch "/accept" => "application#accept", as: :accept_app
+  patch "/decline" => "application#decline", as: :decline_app
 
   scope :user do
     get "dashboard" => "user#dashboard", as: :dashboard
-    # get "profile" => "user#profile", as: :profile
+    # get "employer-profile/new" => "employers#new", as: :new_user_employer
+    # get "employee-profile/new" => "employees#new", as: :new_user_employee
   end
 
   resources :employers do

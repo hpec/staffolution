@@ -3,8 +3,23 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  def accept
+    @app = Application.find(params[:id])
+    @app.accepted = true
+    @app.save!
+    redirect_to Job.find(@app.job_id)
+  end
 
+  def decline
+    @app = Application.find(params[:id])
+    @app.accepted = false
+    @app.save!
+    redirect_to Job.find(@app.job_id)
+  end
+
+  private
+
+  before_filter :configure_permitted_parameters, if: :devise_controller?
   protected
 
   #->Prelang (user_login:devise)
