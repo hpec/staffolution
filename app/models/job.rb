@@ -25,5 +25,7 @@
 
 class Job < ActiveRecord::Base
   belongs_to :employer
-  belongs_to :employee
+
+  has_many :applications
+  has_many :employee, through: :applications
 end
