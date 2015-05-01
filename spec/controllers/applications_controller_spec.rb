@@ -73,25 +73,31 @@ RSpec.describe ApplicationsController, type: :controller do
   #   end
   # end
 
-  # describe "POST #create" do
-  #   context "with valid params" do
-  #     it "creates a new Application" do
-  #       expect {
-  #         post :create, {:application => valid_attributes}, valid_session
-  #       }.to change(Application, :count).by(1)
-  #     end
+  describe "POST #create" do
+    context "with valid params" do
+      before(:each) do
+        @user = User.create(email: 'example@example.com', username: 'user1', name:'F_L', id:1, password:'12345678',is_employer: true)
+        sign_in @user
+        employer=FactoryGirl.create(:employer)
+        @user.employer = employer
+      end
+      it "creates a new Application" do
+        expect {
+          Application.create(id:1)
+        }.to change(Application, :count).by(1)
+      end
 
-  #     it "assigns a newly created application as @application" do
-  #       post :create, {:application => valid_attributes}, valid_session
-  #       expect(assigns(:application)).to be_a(Application)
-  #       expect(assigns(:application)).to be_persisted
-  #     end
+      # it "assigns a newly created application as @application" do
+      #   post :create, {:application => valid_attributes}, valid_session
+      #   expect(assigns(:application)).to be_a(Application)
+      #   expect(assigns(:application)).to be_persisted
+      # end
 
   #     it "redirects to the created application" do
   #       post :create, {:application => valid_attributes}, valid_session
   #       expect(response).to redirect_to(Application.last)
   #     end
-  #   end
+    end
 
   #   context "with invalid params" do
   #     it "assigns a newly created but unsaved application as @application" do
@@ -104,7 +110,7 @@ RSpec.describe ApplicationsController, type: :controller do
   #       expect(response).to render_template("new")
   #     end
   #   end
-  # end
+  end
 
   # describe "PUT #update" do
   #   context "with valid params" do
