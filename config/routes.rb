@@ -7,7 +7,8 @@ Staffolution::Application.routes.draw do
 
   scope :user do
     get "dashboard" => "user#dashboard", as: :dashboard
-    # get "profile" => "user#profile", as: :profile
+    # get "employer-profile/new" => "employers#new", as: :new_user_employer
+    # get "employee-profile/new" => "employees#new", as: :new_user_employee
   end
 
   resources :employers do
