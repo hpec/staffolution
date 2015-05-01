@@ -29,11 +29,11 @@
 
 FactoryGirl.define do
   factory :employee do
-    employee_email "MyString@gsndg.com"
-    employee_phone 1234567898
-    employee_zipcode 12345
-    employee_first_name "MyString"
-    employee_last_name "MyString"
+    email "MyString@gsndg.com"
+    phone 1234567898
+    zipcode 12345
+    first_name "MyString"
+    last_name "MyString"
     # employee_bages "MyString"
     # employee_description "MyText"
     # employee_experience_years 1

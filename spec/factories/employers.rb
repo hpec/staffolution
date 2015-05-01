@@ -38,5 +38,7 @@ FactoryGirl.define do
     address_line_1 "MyString"
     city "MyString"
     state "MyString"
+    contact_person "fff"
+    industry "fghh"
   end
 end

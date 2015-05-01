@@ -86,17 +86,17 @@ RSpec.describe EmployersController, :type => :controller do
       end
       it "creates a new Employer" do
         expect {
-          post :create, :employer =>{:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}
+          post :create, :employer =>{:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}
         }.to change(Employer, :count).by(1)
       end
       it "assigns a newly created employer as @employer" do
-        post :create, :employer =>{:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}
+        post :create, :employer =>{:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}
         expect(assigns(:employer)).to be_a(Employer)
         expect(assigns(:employer)).to be_persisted
       end
 
       it "redirects to the created employer" do
-        post :create, :employer =>{:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}
+        post :create, :employer =>{:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}
         expect(response).to redirect_to(Employer.last)
       end
     end
@@ -107,7 +107,7 @@ RSpec.describe EmployersController, :type => :controller do
       end
 
       it "re-renders the 'new' template" do
-        post :create, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}
+        post :create, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}
         expect(response).to render_template("new")
       end
     end
@@ -123,7 +123,7 @@ RSpec.describe EmployersController, :type => :controller do
       end
       it "updates the requested employer" do
         employer = FactoryGirl.create(:employer)
-        put :update, {:id => 1, :employer => {:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}}
+        put :update, {:id => 1, :employer => {:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}}
         employer.reload
         expect(employer.email).to eq('user@example.com')
       end
@@ -136,7 +136,7 @@ RSpec.describe EmployersController, :type => :controller do
 
       it "redirects to the employer" do
         employer = FactoryGirl.create(:employer)
-        put :update, {:id => 1, :employer => {:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}}
+        put :update, {:id => 1, :employer => {:email=> 'user@example.com', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}}
         expect(response).to redirect_to(employer)
       end
     end
@@ -153,7 +153,7 @@ RSpec.describe EmployersController, :type => :controller do
 
       it "re-renders the 'edit' template" do
         employer = FactoryGirl.create(:employer)
-        put :update, {:id => 1, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704}}
+        put :update, {:id => 1, :employer => {:email=> 'user', :username=> 'user1', :name=>'F_L', :id=>1, :password=>'12345678',:phone => 1234567898, :address_line_1 => 'sdnfskjdnfkj', :city => 'berkeley', :state =>'CA', :zipcode=>94704,:contact_person=>'fda',:industry=>'ssf'}}
         expect(response).to render_template("edit")
       end
     end

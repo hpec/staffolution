@@ -81,7 +81,7 @@ RSpec.describe EmployeesController, :type => :controller do
       end
       it "creates a new Employee" do
         expect {
-          post :create, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}
+          post :create, :employee => {:email=> 'user@example.com', :username=> 'user1', :first_name=>'F',:last_name=>'L', :id=>1, :password=>'12345678',:phone => 1234567898, :zipcode=>94704}
         }.to change(Employee, :count).by(1)
       end
 
@@ -92,7 +92,7 @@ RSpec.describe EmployeesController, :type => :controller do
       # end
 
       it "redirects to the created employee" do
-        post :create, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}
+        post :create, :employee => {:email=> 'user@example.com', :username=> 'user1', :first_name=>'F',:last_name=>'L', :id=>1, :password=>'12345678',:phone => 1234567898, :zipcode=>94704}
         expect(response).to redirect_to(Employee.last)
       end
     end
@@ -107,7 +107,7 @@ RSpec.describe EmployeesController, :type => :controller do
       # end
 
       it "re-renders the 'new' template" do
-        post :create, :employee => {:employee_email=> 'user', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}
+        post :create, :employee => {:email=> 'user', :username=> 'user1', :first_name=>'F',:last_name=>'L', :id=>1, :password=>'12345678',:phone => 1234567898, :zipcode=>94704}
         expect(response).to render_template("new")
       end
     end
@@ -123,9 +123,9 @@ RSpec.describe EmployeesController, :type => :controller do
       end
       it "updates the requested employee" do
         employee = FactoryGirl.create(:employee)
-        put :update, {:id => 1, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
+        put :update, {:id => 1, :employee => {:email=> 'user@example.com', :username=> 'user1', :first_name=>'F',:last_name=>'L', :id=>1, :password=>'12345678',:phone => 1234567898, :zipcode=>94704}}
         employee.reload
-        expect(employee.employee_email).to eq('user@example.com')
+        expect(employee.email).to eq('user@example.com')
       end
 
       # it "assigns the requested employee as @employee" do
@@ -136,7 +136,7 @@ RSpec.describe EmployeesController, :type => :controller do
 
       it "redirects to the employee" do
         employee = FactoryGirl.create(:employee)
-        put :update, {:id => 1, :employee => {:employee_email=> 'user@example.com', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
+        put :update, {:id => 1, :employee => {:email=> 'user@example.com', :username=> 'user1', :first_name=>'F',:last_name=>'L', :id=>1, :password=>'12345678',:phone => 1234567898, :zipcode=>94704}}
         expect(response).to redirect_to(employee)
       end
     end
@@ -152,7 +152,7 @@ RSpec.describe EmployeesController, :type => :controller do
       # end
       it "re-renders the 'edit' template" do
         employee = FactoryGirl.create(:employee)
-        put :update, {:id => 1, :employee => {:employee_email=> 'user', :username=> 'user1', :employee_first_name=>'F',:employee_last_name=>'L', :id=>1, :password=>'12345678',:employee_phone => 1234567898, :employee_zipcode=>94704}}
+        put :update, {:id => 1, :employee => {:email=> 'user', :username=> 'user1', :first_name=>'F',:last_name=>'L', :id=>1, :password=>'12345678',:phone => 1234567898, :zipcode=>94704}}
         expect(response).to render_template("edit")
       end
     end
