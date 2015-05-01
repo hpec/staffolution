@@ -21,4 +21,3 @@ Scenario:
     And I visit the jobs page
     And I follow "apply"
     And I visit the open applications page
-    I should see "Job1 Desc"

@@ -24,7 +24,6 @@ Given(/^that the following Users exist:$/) do |users_table|
     fill_in(:user_password_confirmation, :with => user['Authentication'])
     fill_in(:user_email, :with => user['Email'])
     click_button("Sign Up")
-    click_link("Account")
     click_link("Sign Out")
   end
 end
@@ -52,18 +51,15 @@ When(/^I follow "(.*?)"$/) do |link|
 end
 
 When(/^I create test employee 1$/) do
-  fill_in('employee_employee_first_name', :with=> 'Joe')
-  fill_in('employee_employee_last_name', :with=> 'shmoe')
-  fill_in('employee_employee_phone', :with=> '1234567890')
-  fill_in('employee_employee_school', :with=> 'UC Berkeley')
-  fill_in('employee_employee_experience_years', :with=> '1')
-  fill_in('employee_employee_experience_months', :with=> '9')
-  fill_in('employee_employee_lic_number', :with=> '1234ABCD')
-  fill_in('employee_employee_qualifications', :with=> 'fantastic hair')
-  fill_in('employee_employee_languages', :with=> 'English, Spanish, Pig Latin')
-  fill_in('employee_employee_description', :with=> 'pls hire me I need $')
-  fill_in('employee_employee_zipcode', :with=> '94720')
-  fill_in('employee_employee_email', :with=> 'joerepair@b.com')
+  fill_in('employee_first_name', :with=> 'Joe')
+  fill_in('employee_last_name', :with=> 'shmoe')
+  fill_in('employee_phone', :with=> '1234567890')
+  fill_in('employee_school', :with=> 'UC Berkeley')
+  fill_in('employee_years_of_experience', :with=> '1')
+  fill_in('employee_certifications', :with=> 'fantastic hair')
+  fill_in('employee_bio', :with=> 'pls hire me I need $')
+  fill_in('employee_zipcode', :with=> '94720')
+  fill_in('employee_email', :with=> 'joerepair@b.com')
   click_button("Create Employee")
   assert page.body.include? "Employee was successfully created"
 end
