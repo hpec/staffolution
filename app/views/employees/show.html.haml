@@ -3,81 +3,48 @@
   %h1= t '.title', :default => Employee
 .fieldset
   %dl
-    %dt.label.label-default= model_class.human_attribute_name(:employee_email)
+    %dt.label.label-default= model_class.human_attribute_name(:email)
     %dd
-      %pre.prettyprint= @employee.employee_email
-    %dt.label.label-default= model_class.human_attribute_name(:employee_phone)
+      %pre.prettyprint= @employee.email
+    %dt.label.label-default= model_class.human_attribute_name(:phone)
     %dd
-      %pre.prettyprint= @employee.employee_phone
-    %dt.label.label-default= model_class.human_attribute_name(:employee_zipcode)
+      %pre.prettyprint= @employee.phone
+    %dt.label.label-default= model_class.human_attribute_name(:zipcode)
     %dd
-      %pre.prettyprint= @employee.employee_zipcode
-    %dt.label.label-default= model_class.human_attribute_name(:employee_first_name)
+      %pre.prettyprint= @employee.zipcode
+    %dt.label.label-default= model_class.human_attribute_name(:first_name)
     %dd
-      %pre.prettyprint= @employee.employee_first_name
-    %dt.label.label-default= model_class.human_attribute_name(:employee_last_name)
+      %pre.prettyprint= @employee.first_name
+    %dt.label.label-default= model_class.human_attribute_name(:last_name)
     %dd
-      %pre.prettyprint= @employee.employee_last_name
-    %dt.label.label-default= model_class.human_attribute_name(:employee_bages)
+      %pre.prettyprint= @employee.last_name
+    %dt.label.label-default= model_class.human_attribute_name(:certifications)
     %dd
-      %pre.prettyprint= @employee.employee_bages
-    %dt.label.label-default= model_class.human_attribute_name(:employee_description)
+      %pre.prettyprint= @employee.certifications
+    %dt.label.label-default= model_class.human_attribute_name(:days_available)
     %dd
-      %pre.prettyprint= @employee.employee_description
-    %dt.label.label-default= model_class.human_attribute_name(:employee_experience_years)
+      %pre.prettyprint= @employee.days_available
+    %dt.label.label-default= model_class.human_attribute_name(:has_transportation)
     %dd
-      %pre.prettyprint= @employee.employee_experience_years
-    %dt.label.label-default= model_class.human_attribute_name(:employee_experience_months)
+      %pre.prettyprint= @employee.has_transportation
+    %dt.label.label-default= model_class.human_attribute_name(:industry)
     %dd
-      %pre.prettyprint= @employee.employee_experience_months
-    %dt.label.label-default= model_class.human_attribute_name(:employee_lic_number)
+      %pre.prettyprint= @employee.industry
+    %dt.label.label-default= model_class.human_attribute_name(:school)
     %dd
-      %pre.prettyprint= @employee.employee_lic_number
-    %dt.label.label-default= model_class.human_attribute_name(:employee_type)
+      %pre.prettyprint= @employee.school
+    %dt.label.label-default= model_class.human_attribute_name(:degree)
     %dd
-      %pre.prettyprint= @employee.employee_type
-    %dt.label.label-default= model_class.human_attribute_name(:employee_rating)
+      %pre.prettyprint= @employee.degree
+    %dt.label.label-default= model_class.human_attribute_name(:years_of_experience)
     %dd
-      %pre.prettyprint= @employee.employee_rating
-    %dt.label.label-default= model_class.human_attribute_name(:employee_punctuality)
+      %pre.prettyprint= @employee.years_of_experience
+    %dt.label.label-default= model_class.human_attribute_name(:pay_per_hour)
     %dd
-      %pre.prettyprint= @employee.employee_punctuality
-    %dt.label.label-default= model_class.human_attribute_name(:employee_dependability)
+      %pre.prettyprint= @employee.pay_per_hour
+    %dt.label.label-default= model_class.human_attribute_name(:bio)
     %dd
-      %pre.prettyprint= @employee.employee_dependability
-    %dt.label.label-default= model_class.human_attribute_name(:employee_reliable_transportation)
-    %dd
-      %pre.prettyprint= @employee.employee_reliable_transportation
-    %dt.label.label-default= model_class.human_attribute_name(:employee_accurate_calendar)
-    %dd
-      %pre.prettyprint= @employee.employee_accurate_calendar
-    %dt.label.label-default= model_class.human_attribute_name(:employee_transportation)
-    %dd
-      %pre.prettyprint= @employee.employee_transportation
-    %dt.label.label-default= model_class.human_attribute_name(:employee_school)
-    %dd
-      %pre.prettyprint= @employee.employee_school
-    %dt.label.label-default= model_class.human_attribute_name(:employee_languages)
-    %dd
-      %pre.prettyprint= @employee.employee_languages
-    %dt.label.label-default= model_class.human_attribute_name(:employee_qualifications)
-    %dd
-      %pre.prettyprint= @employee.employee_qualifications
-    %dt.label.label-default= model_class.human_attribute_name(:employee_credentials)
-    %dd
-      %pre.prettyprint= @employee.employee_credentials
-    %dt.label.label-default= model_class.human_attribute_name(:employee_experience)
-    %dd
-      %pre.prettyprint= @employee.employee_experience
-    %dt.label.label-default= model_class.human_attribute_name(:employee_phone_verified)
-    %dd
-      %pre.prettyprint= @employee.employee_phone_verified
-    %dt.label.label-default= model_class.human_attribute_name(:employee_email_verified)
-    %dd
-      %pre.prettyprint= @employee.employee_email_verified
-    %dt.label.label-default= model_class.human_attribute_name(:employee_lic_verified)
-    %dd
-      %pre.prettyprint= @employee.employee_lic_verified
+      %pre.prettyprint= @employee.bio
 .form-group
   = link_to t('.back', :default => t("helpers.links.back")), |
     employees_path, :class => 'btn btn-default'              |
