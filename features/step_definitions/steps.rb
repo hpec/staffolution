@@ -40,8 +40,6 @@ Then(/^I update compensation to "(.*?)"$/) do |arg1|
   fill_in('job_compensation', :with=> arg1)
 end
 
-
-
 When(/^I press "(.*?)"$/) do |button|
   click_button(button)
 end
@@ -86,6 +84,13 @@ When(/^I create test job 1$/) do
   fill_in('job_position', :with=> 'Repairman')
   click_button("Post")
   assert page.body.include? "successfully created"
+end
+
+When(/^I log in as Test Worker 2$/) do
+  visit path_to("the login page")
+  fill_in('user_login', :with => 'joeshmo2')
+  fill_in('user_password', :with => '12345678')
+  click_button("Login")
 end
 
 Then(/^I should see "(.*?)"$/) do |content|
