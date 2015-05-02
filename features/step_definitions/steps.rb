@@ -40,8 +40,6 @@ Then(/^I update compensation to "(.*?)"$/) do |arg1|
   fill_in('job_compensation', :with=> arg1)
 end
 
-
-
 When(/^I press "(.*?)"$/) do |button|
   click_button(button)
 end

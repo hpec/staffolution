@@ -11,7 +11,7 @@ Background: Some jobs and users already exist
     |Name	|Description	|Location	|
     |Job1	|Job1 Desc	|94703		|
 
-    And Given that the following Users exist:
+    And that the following Users exist:
 
     |ID|Username|Authentication|Type|Email	|
     |1 |joeshmoe|12345678      |E   |a@b.com	|
