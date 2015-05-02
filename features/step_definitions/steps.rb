@@ -73,7 +73,8 @@ When(/^I create test employer 1$/) do
   fill_in('employer_city', :with=> 'Berkeley')
   select('California', :from => 'employer_state')
   fill_in('employer_zipcode', :with=> '94720')
-  fill_in('employer_office_type', :with=> 'repair')
+  fill_in('employer_contact_person', :with=> 'asdasd')
+  fill_in('employer_industry', :with=> 'asdfafasf')
   click_button("Create Employer")
   assert page.body.include? "successfully created"
 end
@@ -102,10 +103,7 @@ Then(/^I should view test employee 1$/) do
   assert page.body.include? '1234567890'
   assert page.body.include? 'UC Berkeley'
   assert page.body.include? '1'
-  assert page.body.include? '9'
-  assert page.body.include? '1234ABCD'
   assert page.body.include? 'fantastic hair'
-  assert page.body.include? 'English, Spanish, Pig Latin'
   assert page.body.include? 'pls hire me I need $'
   assert page.body.include? '94720'
 end

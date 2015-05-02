@@ -19,7 +19,7 @@ Scenario: edit employer profile
 	And I create test employee 1
 	And I follow "Edit"
 	And I should see "Personal Info"
-	And I fill employee_employee_school with 'Stanford'
+	And I fill employee_school with 'Stanford'
 	And I press "Update Employee"
 	Then I should see 'Stanford'
 	Then I should not see 'UC Berkeley'

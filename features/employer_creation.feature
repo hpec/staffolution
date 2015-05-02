@@ -5,7 +5,7 @@ Feature: create a staffolution account as an employer
 	I want to be able to create an account
 
 Scenario: create employer account
-	When I am on the home page
+	When I am on the start page
 	And I follow "Post a job"
     Then I should see "Username"
         And I fill user_username with 'ratpack'

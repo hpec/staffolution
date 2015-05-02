@@ -5,6 +5,7 @@ class JobsController < InheritedResources::Base
 
   def new
     @job = Job.new
+    @job.employer = @employer
     @employer_id = @employer.id
     @job.address_line_1 = @employer.address_line_1
     @job.address_line_2 = @employer.address_line_2

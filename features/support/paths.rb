@@ -15,6 +15,7 @@ module NavigationHelpers
     #     user_profile_path(User.find_by_login($1))
 
     when /^the home page$/ then '/'
+    when /^the start page$/ then '/get-started'
     when /^the login page$/ then '/login'
     when /^the worker signup page$/ then '/signup?employee=1'
     when /^the employer signup page$/ then '/signup?employer=1'
