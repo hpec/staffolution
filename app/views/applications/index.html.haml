@@ -1,25 +1,33 @@
-%h1 Listing applications
 
-%table
+- if !current_user.is_employer?
+  %h1 Open applications
+
+  %table{:style=>"border: 55px; width: 100%"}
   %thead
     %tr
-      %th Employee
-      %th Job
-      %th Accepted
+      %th 
+      %th 
       %th
       %th
       %th
 
   %tbody
-    - @applications.each do |application|
+    - Application.where(employee_id: current_user.employee.id).each do |app|
+      %p
       %tr
-        %td= application.employee
-        %td= application.job
-        %td= application.accepted
-        %td= link_to 'Show', application
-        %td= link_to 'Edit', edit_application_path(application)
-        %td= link_to 'Destroy', application, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Application', new_application_path
+        %td= link_to Job.find(app.job_id).name, Job.find(app.job_id)
+        - if !app.accepted.nil?
+          - if app.accepted
+            %td Accepted
+            %td
+            %td
+          - else
+            %td Declined
+            %td
+            %td
+          %td
+        - else
+          %td= "Currently In Progress"
+          %td= link_to 'Accept', accept_app_path(id: app.id), :method => :patch
+          %td= link_to 'Decline', decline_app_path(id: app.id), :method => :patch
+          %td= app.accepted

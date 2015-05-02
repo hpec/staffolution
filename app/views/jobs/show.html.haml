@@ -51,7 +51,7 @@
     - @job.applications.each do |app|
       %p
       %tr
-        %td= link_to Employee.find(app.employee_id).employee_email, employee_path(app.employee_id)
+        %td= link_to Employee.find(app.employee_id).email, employee_path(app.employee_id)
         - if !app.accepted.nil?
           - if app.accepted
             %td Accepted
