@@ -23,7 +23,7 @@ module NavigationHelpers
     when /^the employer profile creation page$/ then '/employers/new'
     when /^the job creation page$/ then '/jobs/new'
     when /^the job page$/ then '/jobs'
-    when /^the worker home page$/ then pending
+    when /^the worker home page$/ then '/user/dashboard'
 
     else
       begin
